@@ -1,0 +1,39 @@
+*, *::before, *::after {
+   box-sizing: border-box;
+   margin: 0;
+   padding: 0;
+}
+
+
+body {
+   background-color: #EDE1FF;
+   color: #2B2B2B;
+   font-family: Georgia, 'Times New Roman', serif;
+   min-height: 100vh;
+   display: flex;
+   flex-direction: column;
+}
+
+
+header {
+   padding: 1.5rem clamp(1.5rem, 15vw, 30rem);
+}
+
+
+.header-main {
+   display: flex;
+   justify-content: space-between;
+   align-items: baseline;
+   padding-bottom: 1rem;
+   border-bottom: 1px solid #b18de8;
+}
+
+
+.header-name,
+.header-location {
+   font-size: 0.7rem;
+   letter-spacing: 0.18em;
+   text-transform: uppercase;
+   font-family: 'Helvetica Neue', Arial, sans-serif;
+   color: #4a4540;
+}
