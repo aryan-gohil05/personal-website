@@ -172,16 +172,6 @@ main {
 .card-md { padding: 1.5rem 2rem; }
 .card-lg { padding: 2rem 2rem; }
 
-/* Card row layout */
-.card-row {
-   display: flex;
-   gap: 0.75rem;
-}
-
-.card-1 { flex: 1; }
-.card-2 { flex: 2; }
-.card-3 { flex: 3; }
-
 /* Reading list code */
 
 /* Footer code */
