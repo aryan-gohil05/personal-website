@@ -22,7 +22,12 @@ document.addEventListener('DOMContentLoaded', () => {
         }, speed);
     }
 
+    const taglineEl = document.getElementById('footer-tagline');
+
     type(nameEl, nameText, 100, () => {
-        setTimeout(() => type(locationEl, locationText, 80), 200);
+        setTimeout(() => type(locationEl, locationText, 80, () => {
+            if (!taglineEl) return;
+            setTimeout(() => type(taglineEl, 'A lot of me and a bit of Claude made this website', 40), 400);
+        }), 200);
     });
 });

@@ -82,7 +82,7 @@ main {
 }
 
 .about-name {
-   font-size: 1.8rem;
+   font-size: 1.6rem;
    font-weight: 500;
    font-family: 'Inter', sans-serif;
    color: var(--title-colour);
@@ -99,6 +99,7 @@ main {
    text-decoration: none;
    color: inherit;
    transition: transform 0.15s, border-color 0.15s;
+   position: relative;
 }
 
 .card-link:hover {
@@ -135,10 +136,17 @@ main {
    color: var(--primary-text-colour);
 }
 
+.arrow-right {
+   position: absolute;
+   top: 1rem;
+   right: 1.5rem;
+}
+
 /* Project card */
 .project-body {
    display: flex;
    align-items: center;
+   gap: 1rem;
 }
 
 .project-logo {
@@ -227,6 +235,7 @@ footer {
    font-family: 'Helvetica Neue', Arial, sans-serif;
    color: var(--primary-text-colour);
    text-align: center;
+   line-height: 3;
 }
 
 footer::before {
