@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Worth Your Time — Aryan Gohil</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="worth-your-time.js" defer></script>
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="/favicon/favicon.ico">
@@ -16,27 +17,63 @@
 
     <!--Cloudflare Analytics-->
     <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "febf392956454689b9e67f3caac8111e"}'></script>
-
 </head>
 <body>
-    <header>
+
+    <!-- Mobile fixed nav bar (hidden on desktop via CSS) -->
+    <nav class="wyt-nav" id="wyt-nav">
+        <a href="index.html" class="wyt-nav-btn">
+            <span class="wyt-nav-icon">←</span>
+            <span>Back</span>
+        </a>
+        <div class="wyt-nav-btn wyt-nav-section" id="wyt-section-label">Books</div>
+        <button class="wyt-nav-btn" id="wyt-share-btn">
+            <span class="wyt-nav-icon">↗</span>
+            <span class="wyt-share-label">Share</span>
+        </button>
+    </nav>
+
+    <!-- Desktop header (hidden on mobile via CSS) -->
+    <header class="wyt-desktop-header">
         <div class="header-main">
             <span class="header-name">aryangohil.com</span>
             <span class="header-location">UK</span>
         </div>
     </header>
 
-    <main>
-        <p>In the works</p>
+    <main id="wyt-main">
+        <section class="wyt-section" id="section-books" data-label="Books">
+            <span class="wyt-section-label">Books</span>
+            <div class="wyt-cover-grid" id="books-cover-grid"></div>
+            <div class="wyt-card-grid" id="books-card-grid"></div>
+        </section>
     </main>
 
-<footer>
-    &copy; Aryan Gohil
-    <span id="year"></span>
-    <script>
-        document.getElementById("year").textContent = new Date().getFullYear();
-    </script>. All rights reserved
-</footer>
+    <!-- Mobile full-screen detail overlay -->
+    <div class="wyt-detail" id="wyt-detail" aria-hidden="true">
+        <div class="wyt-detail-bar">
+            <button class="wyt-detail-close" id="wyt-detail-close">&#x2715;</button>
+            <span class="wyt-detail-label">Book</span>
+        </div>
+        <div class="wyt-detail-body">
+            <img class="wyt-detail-cover" id="wyt-detail-cover-img" src="" alt="">
+            <h2 class="wyt-detail-title" id="wyt-detail-title"></h2>
+            <p class="wyt-detail-author" id="wyt-detail-author"></p>
+            <hr class="wyt-detail-divider">
+            <span class="wyt-detail-review-label">My take</span>
+            <p class="wyt-detail-review" id="wyt-detail-review"></p>
+            <a class="wyt-detail-buy" id="wyt-detail-buy" href="#" target="_blank" rel="noopener noreferrer">Go buy it &#x2192;</a>
+        </div>
+    </div>
+
+    <footer>
+        All of these are worth looking into<br>
+        &copy; Aryan Gohil
+        <span id="year"></span>
+        <script>
+            document.getElementById("year").textContent = new Date().getFullYear();
+        </script>. All rights reserved
+    </footer>
 
 </body>
 </html>
