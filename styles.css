@@ -8,6 +8,10 @@
     --title-colour: rgb(29, 27, 27);
     --handle-colour: #626262;
     --max-width: 1100px;
+    --accent-colour: #4a1fa8;
+    --accent-colour-dark: #3b1790;
+    --accent-border-colour: #7c3aed;
+    --accent-gradient: linear-gradient(160deg, #5b21b6, #a855f7);
 }
 
 *, *::before, *::after {
@@ -302,7 +306,7 @@ footer::before {
     font-size: 0.6rem;
     background: var(--border-colour);
     color: var(--title-colour);
-    border: 1px solid #7c3aed;
+    border: 1px solid var(--accent-border-colour);
 }
 
 #wyt-main { padding-top: 62px; }
@@ -345,7 +349,7 @@ footer::before {
 .wyt-cover-fallback {
     position: absolute;
     inset: 0;
-    background: linear-gradient(160deg, #5b21b6, #a855f7);
+    background: var(--accent-gradient);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -462,7 +466,7 @@ footer::before {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: #4a1fa8;
+    background: var(--accent-colour);
     color: white;
     padding: 0.85rem 1rem;
     text-decoration: none;
@@ -474,7 +478,7 @@ footer::before {
     transition: background 0.12s;
 }
 
-.wyt-detail-buy:hover { background: #3b1790; }
+.wyt-detail-buy:hover { background: var(--accent-colour-dark); }
 
 @media (min-width: 768px) {
     .wyt-nav { display: none; }
@@ -517,7 +521,7 @@ footer::before {
     .wyt-card-cover-fallback {
         width: 52px; height: 76px;
         border-radius: 2px;
-        background: linear-gradient(160deg, #5b21b6, #a855f7);
+        background: var(--accent-gradient);
         display: flex;
         align-items: center;
         justify-content: center;
@@ -549,7 +553,7 @@ footer::before {
     .wyt-card-overlay {
         position: absolute;
         inset: 0;
-        background: #4a1fa8;
+        background: var(--accent-colour);
         opacity: 0;
         transition: opacity 0.2s;
         display: flex;
@@ -589,5 +593,5 @@ footer::before {
         transition: background 0.12s, color 0.12s;
     }
 
-    .wyt-card-buy-btn:hover { background: white; color: #4a1fa8; }
+    .wyt-card-buy-btn:hover { background: white; color: var(--accent-colour); }
 }
