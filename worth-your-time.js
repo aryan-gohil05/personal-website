@@ -123,6 +123,9 @@ function openDetail(index) {
 }
 
 function closeDetail() {
+    if (document.activeElement && document.activeElement.closest('#wyt-detail')) {
+        document.activeElement.blur();
+    }
     var overlay = document.getElementById('wyt-detail');
     overlay.classList.remove('wyt-detail--open');
     overlay.setAttribute('aria-hidden', 'true');
