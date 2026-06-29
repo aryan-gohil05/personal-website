@@ -375,7 +375,7 @@ footer::before {
     transition: transform 0.25s ease;
 }
 
-.wyt-detail--open { transform: translateY(0); }
+.wyt-detail:target { transform: translateY(0); }
 
 .wyt-detail-bar {
     display: flex;

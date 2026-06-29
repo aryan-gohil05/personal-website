@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Worth Your Time — Aryan Gohil</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="worth-your-time.js" defer></script>
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="/favicon/favicon.ico">
@@ -21,12 +20,12 @@
 <body>
 
     <!-- Mobile fixed nav bar (hidden on desktop via CSS) -->
-    <nav class="wyt-nav" id="wyt-nav" aria-label="Page navigation">
+    <nav class="wyt-nav" aria-label="Page navigation">
         <a href="index.html" class="wyt-nav-btn">
             <span class="wyt-nav-icon">←</span>
             <span>Back</span>
         </a>
-        <span class="wyt-nav-btn wyt-nav-section" id="wyt-section-label" aria-live="polite">Books</span>
+        <span class="wyt-nav-btn wyt-nav-section">Books</span>
         <span class="wyt-nav-btn"></span>
     </nav>
 
@@ -39,27 +38,52 @@
     </header>
 
     <main id="wyt-main">
-        <section class="wyt-section" id="section-books" data-label="Books">
+        <section class="wyt-section">
             <h1 class="wyt-section-label">Books</h1>
-            <div class="wyt-cover-grid" id="books-cover-grid"></div>
-            <div class="wyt-card-grid" id="books-card-grid"></div>
+
+            <!-- Mobile: cover grid -->
+            <div class="wyt-cover-grid">
+                <a href="#book-1" class="wyt-cover-item">
+                    <img src="/images/fastlane_cover.jpg" alt="The Millionaire Fastlane" class="wyt-cover-img"
+                         onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+                    <div class="wyt-cover-fallback">The Millionaire Fastlane</div>
+                </a>
+            </div>
+
+            <!-- Desktop: card grid -->
+            <div class="wyt-card-grid">
+                <a href="https://www.amazon.co.uk/Millionaire-Fastlane-Crack-Wealth-Lifetime/dp/0984358102"
+                   class="wyt-card" target="_blank" rel="noopener noreferrer">
+                    <img src="/images/fastlane_cover.jpg" alt="The Millionaire Fastlane" class="wyt-card-cover"
+                         onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+                    <div class="wyt-card-cover-fallback" style="display:none;">The Millionaire Fastlane</div>
+                    <div class="wyt-card-title">The Millionaire Fastlane</div>
+                    <div class="wyt-card-author">M.J. DeMarco</div>
+                    <p class="wyt-card-review">Changed how I think about wealth, time, and the systems we're sold by default. Blunt, occasionally abrasive, and genuinely useful if you're willing to question the standard playbook.</p>
+                    <div class="wyt-card-overlay">
+                        <div class="wyt-card-overlay-title">The Millionaire Fastlane</div>
+                        <span class="wyt-card-buy-btn">Go buy it &rarr;</span>
+                    </div>
+                </a>
+            </div>
         </section>
     </main>
 
-    <!-- Mobile full-screen detail overlay -->
-    <div class="wyt-detail" id="wyt-detail" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="wyt-detail-title">
+    <!-- Mobile detail overlays — one per book, shown via CSS :target -->
+    <div class="wyt-detail" id="book-1" role="dialog" aria-modal="true" aria-label="The Millionaire Fastlane">
         <div class="wyt-detail-bar">
-            <button class="wyt-detail-close" id="wyt-detail-close" aria-label="Close">&#x2715;</button>
+            <a href="#" class="wyt-detail-close" aria-label="Close">&#x2715;</a>
             <span class="wyt-detail-label">Book</span>
         </div>
         <div class="wyt-detail-body">
-            <img class="wyt-detail-cover" id="wyt-detail-cover-img" src="data:," alt="">
-            <h2 class="wyt-detail-title" id="wyt-detail-title"></h2>
-            <p class="wyt-detail-author" id="wyt-detail-author"></p>
+            <img class="wyt-detail-cover" src="/images/fastlane_cover.jpg" alt="The Millionaire Fastlane">
+            <h2 class="wyt-detail-title">The Millionaire Fastlane</h2>
+            <p class="wyt-detail-author">M.J. DeMarco</p>
             <hr class="wyt-detail-divider">
             <span class="wyt-detail-review-label">My take</span>
-            <p class="wyt-detail-review" id="wyt-detail-review"></p>
-            <a class="wyt-detail-buy" id="wyt-detail-buy" href="#" target="_blank" rel="noopener noreferrer">Go buy it &#x2192;</a>
+            <p class="wyt-detail-review">Changed how I think about wealth, time, and the systems we're sold by default. Blunt, occasionally abrasive, and genuinely useful if you're willing to question the standard playbook.</p>
+            <a class="wyt-detail-buy" href="https://www.amazon.co.uk/Millionaire-Fastlane-Crack-Wealth-Lifetime/dp/0984358102"
+               target="_blank" rel="noopener noreferrer">Go buy it &#x2192;</a>
         </div>
     </div>
 
@@ -67,10 +91,17 @@
         All of these are worth looking into<br>
         &copy; Aryan Gohil
         <span id="year"></span>
-        <script>
-            document.getElementById("year").textContent = new Date().getFullYear();
-        </script>. All rights reserved
+        <script>document.getElementById("year").textContent = new Date().getFullYear();</script>. All rights reserved
     </footer>
+
+    <script>
+        document.querySelectorAll('.wyt-detail-close').forEach(function(el) {
+            el.addEventListener('click', function(e) {
+                e.preventDefault();
+                history.replaceState(null, '', location.pathname + location.search);
+            });
+        });
+    </script>
 
 </body>
 </html>
