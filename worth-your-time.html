@@ -21,12 +21,12 @@
 <body>
 
     <!-- Mobile fixed nav bar (hidden on desktop via CSS) -->
-    <nav class="wyt-nav" id="wyt-nav">
+    <nav class="wyt-nav" id="wyt-nav" aria-label="Page navigation">
         <a href="index.html" class="wyt-nav-btn">
             <span class="wyt-nav-icon">←</span>
             <span>Back</span>
         </a>
-        <div class="wyt-nav-btn wyt-nav-section" id="wyt-section-label">Books</div>
+        <span class="wyt-nav-btn wyt-nav-section" id="wyt-section-label" aria-live="polite">Books</span>
         <button class="wyt-nav-btn" id="wyt-share-btn">
             <span class="wyt-nav-icon">↗</span>
             <span class="wyt-share-label">Share</span>
@@ -43,20 +43,20 @@
 
     <main id="wyt-main">
         <section class="wyt-section" id="section-books" data-label="Books">
-            <span class="wyt-section-label">Books</span>
+            <h1 class="wyt-section-label">Books</h1>
             <div class="wyt-cover-grid" id="books-cover-grid"></div>
             <div class="wyt-card-grid" id="books-card-grid"></div>
         </section>
     </main>
 
     <!-- Mobile full-screen detail overlay -->
-    <div class="wyt-detail" id="wyt-detail" aria-hidden="true">
+    <div class="wyt-detail" id="wyt-detail" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="wyt-detail-title">
         <div class="wyt-detail-bar">
-            <button class="wyt-detail-close" id="wyt-detail-close">&#x2715;</button>
+            <button class="wyt-detail-close" id="wyt-detail-close" aria-label="Close">&#x2715;</button>
             <span class="wyt-detail-label">Book</span>
         </div>
         <div class="wyt-detail-body">
-            <img class="wyt-detail-cover" id="wyt-detail-cover-img" src="" alt="">
+            <img class="wyt-detail-cover" id="wyt-detail-cover-img" src="data:," alt="">
             <h2 class="wyt-detail-title" id="wyt-detail-title"></h2>
             <p class="wyt-detail-author" id="wyt-detail-author"></p>
             <hr class="wyt-detail-divider">

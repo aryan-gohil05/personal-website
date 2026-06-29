@@ -307,6 +307,7 @@ footer::before {
     background: var(--border-colour);
     color: var(--title-colour);
     border: 1px solid var(--accent-border-colour);
+    cursor: default;
 }
 
 #wyt-main { padding-top: 62px; }
