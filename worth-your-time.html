@@ -41,11 +41,7 @@
         <section class="wyt-section">
             <h1 class="wyt-section-label">Books</h1>
 
-            <!-- Mobile: cover grid -->
             <div class="wyt-cover-grid" id="cover-grid"></div>
-
-            <!-- Desktop: card grid -->
-            <div class="wyt-card-grid" id="card-grid"></div>
         </section>
     </main>
 
@@ -59,7 +55,7 @@
                 title: "The Millionaire Fastlane",
                 author: "M.J. DeMarco",
                 cover: "/images/books/fastlane_cover.jpg",
-                link: "https://www.amazon.co.uk/Millionaire-Fastlane-Crack-Wealth-Lifetime/dp/0984358102",
+                link: "https://www.waterstones.com/book/the-millionaire-fastlane/mj-demarco/9780984358106",
                 review: [
                     "This book completely changed how I think about money &amp; time, and it’s the reason I became interested in entrepreneurship.",
                     "At the start MJ DeMarco uses logic &amp; math to show the <em>’default’</em> path we’re sold — get a job, save 20% of salary, and let market investments compound — doesn’t build true wealth especially at a young age where you can enjoy it.",
@@ -70,12 +66,32 @@
             },
             {
                 id: "book-2",
+                title: "The Black Hole War",
+                author: "Leonard Susskind",
+                cover: "/images/books/black-hole-war.jpg",
+                link: "https://www.waterstones.com/book/the-black-hole-war/leonard-susskind/9780316016414",
+                review: [
+                    "Writing this up. Just give me a sec"
+                ]
+            },
+            {
+                id: "book-3",
+                title: "Hitchhiker's Guide to the Galaxy - Volume 1",
+                author: "Douglas Adams",
+                cover: "/images/books/hitchhikers-1.jpg",
+                link: "https://www.waterstones.com/book/the-hitchhikers-guide-to-the-galaxy/douglas-adams/9781529034523",
+                review: [
+                    "Writing this up. Just give me a sec"
+                ]
+            },
+            {
+                id: "book-4",
                 title: "Atomic Habits",
                 author: "James Clear",
                 cover: "/images/books/atomic-habits.jpg",
-                link: "https://www.amazon.co.uk/Atomic-Habits-Proven-Build-Break/dp/1847941834",
+                link: "https://www.waterstones.com/book/atomic-habits/james-clear/9781847941831",
                 review: [
-                    "The best practical guide to building habits that actually stick. Dense with frameworks you’ll use immediately — and surprisingly easy to act on."
+                    "I want to read this. I've heard good things"
                 ]
             }
         ];
@@ -86,20 +102,6 @@
             <a href="#${b.id}" class="wyt-cover-item">
                 <img src="${b.cover}" alt="${b.title}" class="wyt-cover-img" onerror="${onerr}">
                 <div class="wyt-cover-fallback">${b.title}</div>
-            </a>
-        `).join("");
-
-        document.getElementById("card-grid").innerHTML = books.map(b => `
-            <a href="${b.link}" class="wyt-card" target="_blank" rel="noopener noreferrer">
-                <img src="${b.cover}" alt="${b.title}" class="wyt-card-cover" onerror="${onerr}">
-                <div class="wyt-card-cover-fallback" style="display:none;">${b.title}</div>
-                <div class="wyt-card-title">${b.title}</div>
-                <div class="wyt-card-author">${b.author}</div>
-                ${b.review.map(p => `<p class="wyt-card-review">${p}</p>`).join("")}
-                <div class="wyt-card-overlay">
-                    <div class="wyt-card-overlay-title">${b.title}</div>
-                    <span class="wyt-card-buy-btn">Go buy it &rarr;</span>
-                </div>
             </a>
         `).join("");
 
