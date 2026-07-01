@@ -15,6 +15,8 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
     <link rel="manifest" href="/favicon/site.webmanifest">
 
+    <script src="https://unpkg.com/lucide@latest"></script>
+
     <!--Cloudflare Analytics-->
     <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "febf392956454689b9e67f3caac8111e"}'></script>
 
@@ -32,21 +34,36 @@
             <h1 class="about-name">Aryan Gohil</h1>
             <p class="about-desc">Student & developer based in the UK.</p>
         </section>
-        
-        <a href="#" class="card card-filled card-link card-sm">
-            <div class="card-top">
-                <span class="card-label">Current Project</span>
-                <span class="card-arrow">→</span>
-            </div>
-            <div class="project-body">
-                <!-- If logo put it here below -->
-                <img src="" alt="Project logo" class="project-logo">
-                <div>
-                    <h2 class="project-title">TBD</h2>
-                    <p class="project-desc">It's in the works. I promise</p>
+
+        <!--Current project and blog cards-->
+        <div class="socials-row">
+            <a href="#" class="card card-filled card-link card-sm card-wide">
+                <div class="card-top">
+                    <span class="card-label">Current Project</span>
+                    <span class="card-arrow">→</span>
                 </div>
-            </div>
-        </a>
+                <div class="project-body">
+                    <!-- If logo put it here below -->
+                    <img src="" alt="Project logo" class="project-logo">
+                    <div>
+                        <h2 class="project-title">TBD</h2>
+                        <p class="project-desc">It's in the works. I promise</p>
+                    </div>
+                </div>
+            </a>
+            <a href="#" class="card card-link card-sm">
+                <div class="card-top">
+                    <i data-lucide="book-marked" class="thoughts-card-img"></i>
+                    <span class="card-arrow">→</span>
+                </div>
+                <div class="project-body">
+                    <div>
+                        <h2 class="project-title">Thoughts</h2>
+                        <p class="project-desc">My blog</p>
+                    </div>
+                </div>
+            </a>
+        </div>
 
         <div class="socials-row">
             <a href="https://github.com/aryan-gohil05" target="_blank" class="card card-link card-md">
@@ -94,5 +111,6 @@
 </footer>
 
 
+    <script>lucide.createIcons();</script>
 </body>
 </html>

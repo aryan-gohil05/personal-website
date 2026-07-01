@@ -198,6 +198,20 @@ main {
    flex: 1;
 }
 
+.card-wide { flex: 2 !important; }
+
+.thoughts-card-img {
+   width: 28px;
+   height: 28px;
+   flex-shrink: 0;
+   color: var(--title-colour);
+}
+
+.thoughts-card-img svg {
+   width: 100%;
+   height: 100%;
+}
+
 .social-logo {
    width: 1.5rem;
    height: 1.5rem;
