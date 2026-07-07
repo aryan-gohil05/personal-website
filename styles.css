@@ -415,7 +415,6 @@ footer::before {
     display: flex;
     align-items: center;
     padding: 10px 12px;
-    border-bottom: 1px solid var(--border-colour);
     flex-shrink: 0;
 }
 
@@ -433,29 +432,18 @@ footer::before {
     flex-shrink: 0;
 }
 
-.wyt-detail-label {
-    flex: 1;
-    text-align: center;
-    font-size: 0.6rem;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    font-family: 'Helvetica Neue', Arial, sans-serif;
-    color: var(--handle-colour);
-    padding-right: 36px;
-}
-
 .wyt-detail-body {
     flex: 1;
     overflow-y: auto;
     padding: 1.5rem 1.25rem;
     display: flex;
     flex-direction: column;
-    gap: 0.85rem;
+    gap: 1rem;
 }
 
 .wyt-detail-cover {
-    width: 110px;
-    height: 163px;
+    width: clamp(140px, 45%, 200px);
+    aspect-ratio: 2 / 3;
     object-fit: cover;
     border-radius: 4px;
     box-shadow: 3px 4px 14px rgba(0,0,0,0.2);
@@ -483,22 +471,74 @@ footer::before {
 
 .wyt-detail-divider { border: none; border-top: 1px solid var(--border-colour); }
 
-.wyt-detail-review-label {
-    font-size: 0.55rem;
-    text-transform: uppercase;
-    letter-spacing: 0.14em;
-    color: var(--handle-colour);
-    font-family: 'Helvetica Neue', Arial, sans-serif;
-}
-
 .wyt-detail-review {
-    font-size: 0.88rem;
+    font-size: 0.95rem;
     color: var(--primary-text-colour);
-    line-height: 1.65;
+    line-height: 1.8;
     margin: 0;
 }
+
 .wyt-detail-review + .wyt-detail-review {
-    margin-top: 0.75rem;
+    margin-top: 0.85rem;
+}
+
+.wyt-detail-review q {
+    font-style: italic;
+}
+
+.wyt-detail-quote {
+    border-left: 3px solid var(--accent-border-colour);
+    padding-left: 0.9rem;
+}
+
+.wyt-detail-review ul,
+.wyt-detail-review ol {
+    font-size: 0.95rem;
+    color: var(--primary-text-colour);
+    line-height: 1.8;
+    list-style: none;
+    padding-left: 1.1rem;
+}
+
+.wyt-detail-review ol {
+    counter-reset: wyt-ol;
+}
+
+.wyt-detail-review li {
+    position: relative;
+    margin-top: 0.5rem;
+    padding-left: 1.1rem;
+}
+
+.wyt-detail-review ul > li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: var(--accent-colour);
+}
+
+.wyt-detail-review ol > li {
+    counter-increment: wyt-ol;
+}
+
+.wyt-detail-review ol > li::before {
+    content: counter(wyt-ol) ".";
+    position: absolute;
+    left: 0;
+    color: var(--primary-text-colour);
+}
+
+.wyt-detail-review li ul,
+.wyt-detail-review li ol {
+    margin-top: 0.5rem;
+}
+
+.wyt-detail-review-heading {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--accent-colour-dark);
+    line-height: 1.4;
+    margin-top: 0.5rem;
 }
 
 .wyt-detail-buy {
@@ -525,7 +565,7 @@ footer::before {
     }
 
     .wyt-detail-body {
-        max-width: 520px;
+        max-width: 1000px;
         margin-left: auto;
         margin-right: auto;
         width: 100%;
