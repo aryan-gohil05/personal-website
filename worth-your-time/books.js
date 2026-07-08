@@ -21,8 +21,8 @@ const books = [
             "I use CENTS to quickly validate business ideas I have. Seeing my own ideas fail this test has saved me a lot of time on what I should focus on.",
             "A local service business might satisfy <strong>Need</strong> but fail to <strong>Scale</strong>. A software idea might satisfy <strong>Entry</strong> but fail <strong>Control</strong> if it’s fully dependent on someone else’s platform. Like an online store that ONLY exists on Shopify or Amazon. Since Amazon could suspend the account or launch a competing product at any time and I’d be out of business.",
             "I will admit his language is abrasive, especially at the start of the book, but if you can get past that, it’s genuinely worth reading.",
-            "I always recommend this book to anyone who is thinking of <strong>launching a business</strong> or taking there financial future into their own hands."
-        ]
+            "I always recommend this book to anyone who is thinking of <strong>launching a business</strong> or taking there financial future into their own hands.",
+        ],
     },
     {
         id: "The-Black-Hole-War",
@@ -30,9 +30,7 @@ const books = [
         author: "Leonard Susskind",
         cover: "/images/books/black-hole-war.jpg",
         link: "https://www.waterstones.com/book/the-black-hole-war/leonard-susskind/9780316016414",
-        review: [
-            "Writing this up. Just give me a sec"
-        ]
+        review: ["Writing this up. Just give me a sec"],
     },
     {
         id: "book-3",
@@ -40,9 +38,7 @@ const books = [
         author: "Douglas Adams",
         cover: "/images/books/hitchhikers-1.jpg",
         link: "https://www.waterstones.com/book/the-hitchhikers-guide-to-the-galaxy/douglas-adams/9781529034523",
-        review: [
-            "Writing this up. Just give me a sec"
-        ]
+        review: ["Writing this up. Just give me a sec"],
     },
     {
         id: "book-4",
@@ -50,8 +46,6 @@ const books = [
         author: "James Clear",
         cover: "/images/books/atomic-habits.jpg",
         link: "https://www.waterstones.com/book/atomic-habits/james-clear/9781847941831",
-        review: [
-            "I want to read this. I've heard good things"
-        ]
-    }
+        review: ["I want to read this. I've heard good things"],
+    },
 ];

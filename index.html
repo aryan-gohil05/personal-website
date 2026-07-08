@@ -1,133 +1,208 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aryan Gohil</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="typewriter.js" defer></script>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Aryan Gohil</title>
+        <link rel="stylesheet" href="styles.css" />
+        <script src="typewriter.js" defer></script>
 
-    <!-- Favicon -->
-    <link rel="shortcut icon" href="/favicon/favicon.ico">
-    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
-    <meta name="apple-mobile-web-app-title" content="Aryan Gohil">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
-    <link rel="manifest" href="/favicon/site.webmanifest">
+        <!-- Favicon -->
+        <link rel="shortcut icon" href="/favicon/favicon.ico" />
+        <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="/favicon/apple-touch-icon.png"
+        />
+        <meta name="apple-mobile-web-app-title" content="Aryan Gohil" />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="/favicon/favicon-32x32.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="/favicon/favicon-16x16.png"
+        />
+        <link rel="manifest" href="/favicon/site.webmanifest" />
 
-    <script src="https://unpkg.com/lucide@latest"></script>
+        <script src="https://unpkg.com/lucide@latest"></script>
 
-    <!--Cloudflare Analytics-->
-    <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "febf392956454689b9e67f3caac8111e"}'></script>
+        <!--Cloudflare Analytics-->
+        <script
+            defer
+            src="https://static.cloudflareinsights.com/beacon.min.js"
+            data-cf-beacon='{"token": "febf392956454689b9e67f3caac8111e"}'
+        ></script>
+    </head>
+    <body>
+        <header>
+            <div class="header-main">
+                <span class="header-name">aryangohil.com</span>
+                <span class="header-location">UK</span>
+            </div>
+        </header>
 
-</head>
-<body>
-    <header>
-        <div class="header-main">
-            <span class="header-name">aryangohil.com</span>
-            <span class="header-location">UK</span>
-        </div>
-    </header>
+        <main>
+            <section class="card card-filled">
+                <h1 class="about-name">Aryan Gohil</h1>
+                <p class="about-desc">
+                    Hi! I'm a software engineer building and shipping projects
+                    in public, including this site that I coded.
+                </p>
+                <p class="about-desc">
+                    Right now I'm working toward starting my own tech business.
+                </p>
+                <p class="about-desc">
+                    This is where I'll share my progress, thoughts, and whatever
+                    else I find interesting.
+                </p>
+            </section>
 
-    <main>
-        <section class="card card-filled">
-            <h1 class="about-name">Aryan Gohil</h1>
-            <p class="about-desc">Hi! I'm a software engineer building and shipping projects in public, including this site that I coded.</p>
-            <p class="about-desc">Right now I'm working toward starting my own tech business.</p>
-            <p class="about-desc">This is where I'll share my progress, thoughts, and whatever else I find interesting.</p>
-        </section>
+            <!--Thoughts + Socials grid-->
+            <div class="link-grid">
+                <!--Current project card-->
+                <a
+                    href="#"
+                    class="card card-filled card-link card-sm gi-project"
+                >
+                    <div class="card-top">
+                        <span class="card-label">Current Project</span>
+                        <span class="card-arrow">→</span>
+                    </div>
+                    <div class="project-body">
+                        <!-- If logo put it here below -->
+                        <img src="" alt="Project logo" class="project-logo" />
+                        <div>
+                            <h2 class="project-title">TBD</h2>
+                            <p class="project-desc">
+                                It's in the works. I promise
+                            </p>
+                        </div>
+                    </div>
+                </a>
 
-        <!--Thoughts + Socials grid-->
-        <div class="link-grid">
-            <!--Current project card-->
-            <a href="#" class="card card-filled card-link card-sm gi-project">
-                <div class="card-top">
-                    <span class="card-label">Current Project</span>
-                    <span class="card-arrow">→</span>
-                </div>
-                <div class="project-body">
-                    <!-- If logo put it here below -->
-                    <img src="" alt="Project logo" class="project-logo">
+                <!--Thoughts Card-->
+                <a href="/thoughts/" class="card card-link card-sm gi-thoughts">
+                    <div class="social-top">
+                        <i
+                            data-lucide="pencil-line"
+                            class="thoughts-card-img"
+                        ></i>
+                        <span class="card-arrow">→</span>
+                    </div>
                     <div>
-                        <h2 class="project-title">TBD</h2>
-                        <p class="project-desc">It's in the works. I promise</p>
+                        <p class="social-name">Thoughts</p>
+                        <p class="social-handle">
+                            Latest post: Vibecoding (mostly) sucks
+                        </p>
+                    </div>
+                </a>
+
+                <!--Github-->
+                <a
+                    href="https://github.com/aryan-gohil05"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="card card-link card-sm gi-github"
+                >
+                    <div class="social-top">
+                        <img
+                            src="images/socials_logo/github.png"
+                            alt="GitHub"
+                            class="social-icon"
+                        />
+                        <span class="card-arrow">→</span>
+                    </div>
+                    <div>
+                        <p class="social-name">GitHub</p>
+                        <p class="social-handle">@aryan-gohil05</p>
+                    </div>
+                </a>
+
+                <!--X-->
+                <a
+                    href="https://x.com/AryanGohil_"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="card card-link card-sm gi-x"
+                >
+                    <div class="social-top">
+                        <img
+                            src="images/socials_logo/X.png"
+                            alt="X"
+                            class="social-icon"
+                        />
+                        <span class="card-arrow">→</span>
+                    </div>
+                    <div>
+                        <p class="social-name">X</p>
+                        <p class="social-handle">@AryanGohil_</p>
+                    </div>
+                </a>
+
+                <!--Linkedin-->
+                <a
+                    href="https://www.linkedin.com/in/aryan-gohil"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="card card-link card-sm gi-linkedin"
+                >
+                    <div class="social-top">
+                        <img
+                            src="images/socials_logo/linkedin.png"
+                            alt="LinkedIn"
+                            class="social-icon"
+                        />
+                        <span class="card-arrow">→</span>
+                    </div>
+                    <div>
+                        <p class="social-name">LinkedIn</p>
+                        <p class="social-handle">/aryan-gohil</p>
+                    </div>
+                </a>
+            </div>
+
+            <!--Worth Your Time card-->
+            <a
+                href="/worth-your-time/"
+                class="card card-filled card-link card-md"
+                style="justify-content: center"
+            >
+                <span class="card-arrow arrow-right">→</span>
+                <div class="project-body">
+                    <!-- Replace src with your top book cover -->
+                    <img
+                        src="/images/books/fastlane_cover.jpg"
+                        alt="Book cover"
+                        class="project-logo"
+                    />
+                    <div>
+                        <h2 class="project-title">Worth Your Time</h2>
+                        <p class="project-desc">
+                            Books, podcasts & videos I recommend.
+                        </p>
                     </div>
                 </div>
             </a>
+        </main>
 
-            <!--Thoughts Card-->
-            <a href="/thoughts/" class="card card-link card-sm gi-thoughts">
-                <div class="social-top">
-                    <i data-lucide="pencil-line" class="thoughts-card-img"></i>
-                    <span class="card-arrow">→</span>
-                </div>
-                <div>
-                    <p class="social-name">Thoughts</p>
-                    <p class="social-handle">Latest post: Vibecoding (mostly) sucks</p>
-                </div>
-            </a>
+        <footer>
+            <span id="footer-tagline"></span><br />
+            &copy; Aryan Gohil
+            <span id="year"></span>
+            <script>
+                document.getElementById("year").textContent =
+                    new Date().getFullYear();
+            </script>
+            . All rights reserved
+        </footer>
 
-            <!--Github-->
-            <a href="https://github.com/aryan-gohil05" target="_blank" rel="noopener noreferrer" class="card card-link card-sm gi-github">
-                <div class="social-top">
-                    <img src="images/socials_logo/github.png" alt="GitHub" class="social-icon">
-                    <span class="card-arrow">→</span>
-                </div>
-                <div>
-                    <p class="social-name">GitHub</p>
-                    <p class="social-handle">@aryan-gohil05</p>
-                </div>
-            </a>
-
-            <!--X-->
-            <a href="https://x.com/AryanGohil_" target="_blank" rel="noopener noreferrer" class="card card-link card-sm gi-x">
-                <div class="social-top">
-                    <img src="images/socials_logo/X.png" alt="X" class="social-icon">
-                    <span class="card-arrow">→</span>
-                </div>
-                <div>
-                    <p class="social-name">X</p>
-                    <p class="social-handle">@AryanGohil_</p>
-                </div>
-            </a>
-
-            <!--Linkedin-->
-            <a href="https://www.linkedin.com/in/aryan-gohil" target="_blank" rel="noopener noreferrer" class="card card-link card-sm gi-linkedin">
-                <div class="social-top">
-                    <img src="images/socials_logo/linkedin.png" alt="LinkedIn" class="social-icon">
-                    <span class="card-arrow">→</span>
-                </div>
-                <div>
-                    <p class="social-name">LinkedIn</p>
-                    <p class="social-handle">/aryan-gohil</p>
-                </div>
-            </a>
-        </div>
-
-        <!--Worth Your Time card-->
-        <a href="/worth-your-time/" class="card card-filled card-link card-md" style="justify-content: center;">
-            <span class="card-arrow arrow-right">→</span>
-            <div class="project-body">
-                <!-- Replace src with your top book cover -->
-                <img src="/images/books/fastlane_cover.jpg" alt="Book cover" class="project-logo">
-                <div>
-                    <h2 class="project-title">Worth Your Time</h2>
-                    <p class="project-desc">Books, podcasts & videos I recommend.</p>
-                </div>
-            </div>
-        </a>
-    </main>
-
-<footer>
-    <span id="footer-tagline"></span><br>
-    &copy; Aryan Gohil
-    <span id="year"></span>
-    <script>
-        document.getElementById("year").textContent = new Date().getFullYear();
-    </script>. All rights reserved
-</footer>
-
-
-    <script>lucide.createIcons();</script>
-</body>
+        <script>
+            lucide.createIcons();
+        </script>
+    </body>
 </html>

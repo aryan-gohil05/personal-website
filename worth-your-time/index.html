@@ -1,57 +1,81 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Worth Your Time — Aryan Gohil</title>
-    <link rel="stylesheet" href="/styles.css">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Worth Your Time — Aryan Gohil</title>
+        <link rel="stylesheet" href="/styles.css" />
 
-    <!-- Favicon -->
-    <link rel="shortcut icon" href="/favicon/favicon.ico">
-    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
-    <meta name="apple-mobile-web-app-title" content="Aryan Gohil">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
-    <link rel="manifest" href="/favicon/site.webmanifest">
+        <!-- Favicon -->
+        <link rel="shortcut icon" href="/favicon/favicon.ico" />
+        <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="/favicon/apple-touch-icon.png"
+        />
+        <meta name="apple-mobile-web-app-title" content="Aryan Gohil" />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="/favicon/favicon-32x32.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="/favicon/favicon-16x16.png"
+        />
+        <link rel="manifest" href="/favicon/site.webmanifest" />
 
-    <!--Cloudflare Analytics-->
-    <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "febf392956454689b9e67f3caac8111e"}'></script>
-</head>
-<body>
+        <!--Cloudflare Analytics-->
+        <script
+            defer
+            src="https://static.cloudflareinsights.com/beacon.min.js"
+            data-cf-beacon='{"token": "febf392956454689b9e67f3caac8111e"}'
+        ></script>
+    </head>
+    <body>
+        <!-- Top navigation bar -->
+        <nav class="wyt-nav" aria-label="Page navigation">
+            <a href="/" class="wyt-nav-btn">
+                <span class="wyt-nav-icon">←</span>
+                <span>Back</span>
+            </a>
+            <span class="wyt-nav-btn wyt-nav-section">Books</span>
+            <span class="wyt-nav-btn"></span>
+        </nav>
 
-    <!-- Top navigation bar -->
-    <nav class="wyt-nav" aria-label="Page navigation">
-        <a href="/" class="wyt-nav-btn">
-            <span class="wyt-nav-icon">←</span>
-            <span>Back</span>
-        </a>
-        <span class="wyt-nav-btn wyt-nav-section">Books</span>
-        <span class="wyt-nav-btn"></span>
-    </nav>
+        <main id="wyt-main">
+            <section class="wyt-section">
+                <h1 class="wyt-section-label">Book reviews</h1>
 
-    <main id="wyt-main">
-        <section class="wyt-section">
-            <h1 class="wyt-section-label">Book reviews</h1>
+                <div class="wyt-cover-grid" id="cover-grid"></div>
+            </section>
+        </main>
 
-            <div class="wyt-cover-grid" id="cover-grid"></div>
-        </section>
-    </main>
+        <!-- Mobile detail overlays -->
+        <div id="detail-overlays"></div>
 
-    <!-- Mobile detail overlays -->
-    <div id="detail-overlays"></div>
+        <script src="books.js"></script>
+        <script>
+            const onerr =
+                "this.style.display='none';this.nextElementSibling.style.display='flex';";
 
-    <script src="books.js"></script>
-    <script>
-        const onerr = "this.style.display='none';this.nextElementSibling.style.display='flex';";
-
-        document.getElementById("cover-grid").innerHTML = books.map(b => `
+            document.getElementById("cover-grid").innerHTML = books
+                .map(
+                    (b) => `
             <a href="#${b.id}" class="wyt-cover-item">
                 <img src="${b.cover}" alt="${b.title}" class="wyt-cover-img" onerror="${onerr}">
                 <div class="wyt-cover-fallback">${b.title}</div>
             </a>
-        `).join("");
+        `,
+                )
+                .join("");
 
-        document.getElementById("detail-overlays").innerHTML = books.map(b => `
+            document.getElementById("detail-overlays").innerHTML = books
+                .map(
+                    (b) => `
             <div class="wyt-detail" id="${b.id}" role="dialog" aria-modal="true" aria-label="${b.title}">
                 <div class="wyt-detail-bar">
                     <a href="#" class="wyt-detail-close" aria-label="Close">X</a>
@@ -61,25 +85,34 @@
                     <h2 class="wyt-detail-title">${b.title}</h2>
                     <p class="wyt-detail-author">${b.author}</p>
                     <hr class="wyt-detail-divider">
-                    ${b.review.map(p => {
-                        if (p.startsWith("## ")) return `<h3 class="wyt-detail-review-heading">${p.slice(3)}</h3>`;
-                        if (/^<(ul|ol)/.test(p)) return `<div class="wyt-detail-review">${p}</div>`;
-                        if (p.startsWith("<q>")) return `<p class="wyt-detail-review wyt-detail-quote">${p}</p>`;
-                        return `<p class="wyt-detail-review">${p}</p>`;
-                    }).join("")}
+                    ${b.review
+                        .map((p) => {
+                            if (p.startsWith("## "))
+                                return `<h3 class="wyt-detail-review-heading">${p.slice(3)}</h3>`;
+                            if (/^<(ul|ol)/.test(p))
+                                return `<div class="wyt-detail-review">${p}</div>`;
+                            if (p.startsWith("<q>"))
+                                return `<p class="wyt-detail-review wyt-detail-quote">${p}</p>`;
+                            return `<p class="wyt-detail-review">${p}</p>`;
+                        })
+                        .join("")}
                     <a class="wyt-detail-buy" href="${b.link}" target="_blank" rel="noopener noreferrer">Link to get it</a>
                 </div>
             </div>
-        `).join("");
-    </script>
+        `,
+                )
+                .join("");
+        </script>
 
-    <footer>
-        All of these are worth looking into<br>
-        &copy; Aryan Gohil
-        <span id="year"></span>
-        <script>document.getElementById("year").textContent = new Date().getFullYear();</script>. All rights reserved
-    </footer>
-
-
-</body>
+        <footer>
+            All of these are worth looking into<br />
+            &copy; Aryan Gohil
+            <span id="year"></span>
+            <script>
+                document.getElementById("year").textContent =
+                    new Date().getFullYear();
+            </script>
+            . All rights reserved
+        </footer>
+    </body>
 </html>
