@@ -189,17 +189,35 @@ main {
    margin-top: 0.2rem;
 }
 
-/* Socials cards */
-.socials-row {
-   display: flex;
+/* Current project + thoughts + socials grid */
+.link-grid {
+   display: grid;
+   grid-template-columns: repeat(2, 1fr);
+   grid-template-areas:
+      "project project"
+      "thoughts github"
+      "x linkedin";
    gap: 0.75rem;
 }
 
-.socials-row .card {
-   flex: 1;
-}
+.gi-project { grid-area: project; }
+.gi-thoughts { grid-area: thoughts; }
+.gi-github { grid-area: github; }
+.gi-x { grid-area: x; }
+.gi-linkedin { grid-area: linkedin; }
 
-.card-wide { flex: 1 !important; }
+@media (min-width: 601px) {
+   .link-grid {
+      grid-template-columns: repeat(6, 1fr);
+      grid-template-areas:
+         "project project project project thoughts thoughts"
+         "github github x x linkedin linkedin";
+   }
+
+   .gi-thoughts {
+      justify-content: space-between;
+   }
+}
 
 .thoughts-card-img {
    width: 1.3rem;
@@ -265,6 +283,26 @@ footer::before {
    display: block;
    border-top: 1px solid var(--border-colour);
    margin-bottom: 1.5rem;
+}
+
+@media (max-width: 600px) {
+   header { padding: 1rem 1.25rem; }
+
+   main {
+      padding: 0 1.25rem 1rem;
+      gap: 0.5rem;
+   }
+
+   .card { padding: 1.25rem 1.5rem; }
+   .card-sm { padding: 0.75rem 1.25rem; }
+   .card-md { padding: 1rem 1.5rem; }
+
+   footer {
+      padding: 0 1.25rem 1rem;
+      line-height: 1.8;
+   }
+
+   footer::before { margin-bottom: 0.75rem; }
 }
 
 /* ── Worth Your Time page ── */
