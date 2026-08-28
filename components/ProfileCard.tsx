@@ -4,7 +4,7 @@ export default function ProfileCard() {
   return (
     <div className="flex w-full flex-col gap-3 ">
       <div className="avatar self-start">
-        <div className="w-48 rounded-full bg-primary/15 ring-4 ring-primary/20 mb-5">
+        <div className="w-48 rounded-full bg-primary/15 ring-4 ring-secondary/20 mb-5">
           <Image
             src="/me.svg"
             alt="Aryan Gohil"
@@ -16,7 +16,7 @@ export default function ProfileCard() {
       </div>
       <div className="w-full text-left">
         <h1 className="text-4xl font-black">Aryan Gohil</h1>
-        <div className="mt-4 flex w-full items-center gap-6 text-base-content/70">
+        <div className="mt-4 flex w-full items-center gap-6 text-base-content/90">
           <div className="flex items-center gap-1">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -26,21 +26,21 @@ export default function ProfileCard() {
               strokeWidth="2"
               strokeLinecap="round"
               strokeLinejoin="round"
-              className="h-4 w-4 shrink-0"
+              className="h-4 w-4 shrink-0 text-primary"
             >
               <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
               <circle cx="12" cy="10" r="3" />
             </svg>
             <span>UK</span>
           </div>
-          <div className="flex items-center gap-1">
+          <div className="flex items-center gap-1.5 py-1 pl-2 pr-3">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
               strokeWidth={1.5}
               stroke="currentColor"
-              className="h-5 w-5 shrink-0"
+              className="h-4 w-4 shrink-0 text-primary"
             >
               <path
                 strokeLinecap="round"
@@ -52,7 +52,7 @@ export default function ProfileCard() {
               Founder of{" "}
               <a
                 href="https://upvoted.tech"
-                className="font-semibold  hover:text-[#65E03D]"
+                className="hover:text-[#65E03D]"
                 target="_blank"
                 rel="noopener noreferrer"
               >
