@@ -1,5 +1,6 @@
 import ProfileCard from "../ProfileCard";
 import Socials from "../Socials";
+import ThemeToggle from "../ThemeToggle";
 
 const LeftBar = () => {
   return (
@@ -17,6 +18,7 @@ const LeftBar = () => {
         <div className="border-t border-base-300 w-full pt-8">
           <Socials />
         </div>
+        <ThemeToggle />
       </div>
     </section>
   );

@@ -24,7 +24,9 @@ const bricolageGrotesque = Bricolage_Grotesque({
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" className="scroll-smooth" suppressHydrationWarning>
-      <body className={bricolageGrotesque.className}>
+      <body
+        className={`${bricolageGrotesque.className} bg-base-100 text-base-content`}
+      >
         <Script id="theme-init" strategy="beforeInteractive">
           {THEME_INIT_SCRIPT}
         </Script>
