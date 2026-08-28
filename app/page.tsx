@@ -11,8 +11,7 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <main>
-      <div>Aryan</div>
-      <button className="btn btn-soft btn-accent">Accent</button>
+      <div>Aryan Gohil</div>
       <div className="fixed bottom-4 left-4">
         <ThemeToggle />
       </div>
