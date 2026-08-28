@@ -1,5 +1,5 @@
-import Image from "next/image";
 import ThemeToggle from "../components/ThemeToggle";
+import LeftBar from "../components/sections/LeftBar";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -14,10 +14,20 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <main>
-      <div>Aryan Gohil</div>
-      <div className="fixed bottom-4 left-4">
-        <ThemeToggle />
-      </div>
+      <section className="flex gap-14 p-14">
+        <LeftBar />
+        <section className="flex-1 space-y-6">
+          <div>
+            <h2 className="text-xl font-bold">Content block 1</h2>
+            <p>Template text goes here.</p>
+          </div>
+          <div>
+            <h2 className="text-xl font-bold">Content block 2</h2>
+            <p>Template text goes here.</p>
+          </div>
+        </section>
+      </section>
+      <ThemeToggle />
     </main>
   );
 }
