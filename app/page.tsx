@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-secondary/5">
+    <main className="min-h-screen bg-base-300">
       <section className="flex gap-12 p-14">
         <LeftBar />
         <section className="flex-1 space-y-6">

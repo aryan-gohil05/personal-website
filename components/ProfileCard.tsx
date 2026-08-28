@@ -3,8 +3,8 @@ import Image from "next/image";
 export default function ProfileCard() {
   return (
     <div className="flex w-full flex-col gap-3 ">
-      <div className="avatar self-start">
-        <div className="w-48 rounded-full bg-primary/15 ring-4 ring-secondary/20 mb-5">
+      <div className="avatar relative self-start">
+        <div className="w-48 rounded-full bg-primary/15 ring-1 ring-primary/20 mb-5">
           <Image
             src="/me.svg"
             alt="Aryan Gohil"
@@ -52,7 +52,7 @@ export default function ProfileCard() {
               Founder of{" "}
               <a
                 href="https://upvoted.tech"
-                className="hover:text-[#65E03D]"
+                className="font-semibold underline-offset-2 hover:text-[#65E03D] hover:underline"
                 target="_blank"
                 rel="noopener noreferrer"
               >

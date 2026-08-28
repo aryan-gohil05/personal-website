@@ -15,7 +15,7 @@ const LeftBar = () => {
           This is where I write about my experiences and share content that I
           find useful.
         </p>
-        <div className="border-t border-base-300 w-full pt-8">
+        <div className="border-t border-base-content w-full pt-8">
           <Socials />
         </div>
         <ThemeToggle />
