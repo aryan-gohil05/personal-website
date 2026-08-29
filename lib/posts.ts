@@ -1,6 +1,6 @@
 import fs from "fs";
 import path from "path";
-import type { ComponentType } from "react";
+import { cache, type ComponentType } from "react";
 
 const POSTS_DIR = path.join(process.cwd(), "content/blog");
 
@@ -39,7 +39,7 @@ export async function getAllPosts(): Promise<Post[]> {
   return posts.sort((a, b) => (a.date < b.date ? 1 : -1));
 }
 
-export async function getPost(slug: string) {
+export const getPost = cache(async (slug: string) => {
   const { default: Content, metadata } = await importPost(slug);
   return { Content, metadata };
-}
+});
