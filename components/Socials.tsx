@@ -1,11 +1,10 @@
 const Socials = () => {
   return (
-    <div className="flex w-full justify-around gap-6">
+    <div className="flex w-full justify-around gap-6 pb-16">
       <a
         href="https://github.com/aryan-gohil05"
         target="_blank"
         rel="noopener noreferrer"
-        className="h-10 w-10"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"

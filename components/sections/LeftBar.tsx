@@ -4,18 +4,18 @@ import ThemeToggle from "../ThemeToggle";
 
 const LeftBar = () => {
   return (
-    <section className="sticky top-6 h-fit w-96 shrink-0 noscrollbar">
-      <div className="flex flex-col items-start space-y-4 rounded-lg p-6">
+    <section className="md:sticky top-6 h-fit w-full md:w-96 shrink-0 noscrollbar">
+      <div className="flex flex-col items-start space-y-4 rounded-lg  pt-6 px-6 pb-2">
         <ProfileCard />
-        <p className="mt-6 text-base-content">
+        <p className="mt-2 md:mt-4 text-base-content text-sm md:text-base">
           Hi, I build and ship SaaS businesses, including the one I&apos;m
           running right now.
         </p>
-        <p className="text-base-content mb-8 italic">
+        <p className="text-base-content md:mb-8 italic text-sm md:text-base">
           This is where I write about my experiences and share content that I
           find useful.
         </p>
-        <div className="border-t border-base-content w-full pt-8">
+        <div className="hidden md:block border-t border-base-content pt-8 md:w-full">
           <Socials />
         </div>
         <ThemeToggle />
