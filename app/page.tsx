@@ -1,5 +1,6 @@
 import LeftBar from "../components/sections/LeftBar";
 import StartupShowcase from "../components/sections/StartupShowcase";
+import Blog from "../components/sections/Blog";
 import Socials from "../components/Socials";
 import type { Metadata } from "next";
 
@@ -18,11 +19,9 @@ export default function Home() {
       <div className="flex md:flex-row flex-col md:gap-12 p-2 md:p-14">
         <LeftBar />
         <div className="mx-auto mt-2 mb-6 w-7/8 border-t border-base-content md:hidden" />
-        <section className="space-y-18">
+        <section className="min-w-0 flex-1 space-y-12">
           <StartupShowcase />
-          <div>
-            <h2 className="text-xl font-bold">Thoughts</h2>
-          </div>
+          <Blog />
           <div>
             <h2 className="text-xl font-bold">Worth Your Time</h2>
           </div>

@@ -1,18 +1,10 @@
-import Image from "next/image";
+import Avatar from "./Avatar";
 
 export default function ProfileCard() {
   return (
     <div className="flex w-full flex-row md:flex-col gap-3">
-      <div className="avatar relative self-start">
-        <div className="w-26 md:w-48 rounded-full bg-primary/15 ring-1 ring-primary/20 md:mb-5">
-          <Image
-            src="/me.svg"
-            alt="Aryan Gohil"
-            width={150}
-            height={150}
-            priority
-          />
-        </div>
+      <div className="relative self-start md:mb-5">
+        <Avatar className="w-26 md:w-48" priority />
       </div>
       <div className="w-full text-left">
         <h1 className="text-3xl md:text-4xl font-black">Aryan Gohil</h1>
@@ -52,7 +44,7 @@ export default function ProfileCard() {
               Founder of{" "}
               <a
                 href="https://upvoted.tech"
-                className="font-semibold underline-offset-2 hover:text-[#65E03D] hover:underline"
+                className="underline-offset-2 hover:text-[#65E03D] hover:underline"
                 target="_blank"
                 rel="noopener noreferrer"
               >
