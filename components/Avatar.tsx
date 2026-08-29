@@ -18,7 +18,7 @@ export default function Avatar({
         alt="Aryan Gohil"
         width={150}
         height={150}
-        priority={priority}
+        loading={priority ? "eager" : "lazy"}
         className="h-full w-full object-cover"
       />
     </div>

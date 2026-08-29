@@ -3,12 +3,13 @@ import BlogIcon from "@/components/BlogIcon";
 
 export default function BlogCard() {
   return (
-    <div className="flex flex-col gap-1.5 rounded-lg bg-base-100 p-4 ring-1 ring-base-content/10 hover:ring-primary/20 transition-all duration-200">
+    <div className="flex flex-col gap-1.5 rounded-lg bg-base-100 p-4 ring-1 ring-base-content/10 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
       <Image
         src="/cover_images/first-saas.png"
         alt="Blog Cover Image"
         width={500}
         height={200}
+        loading="eager"
         className="rounded-lg"
       />
       <time dateTime="2023-01-01" className="text-sm text-base-content/70">

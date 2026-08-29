@@ -4,7 +4,7 @@ import ThemeToggle from "../ThemeToggle";
 
 const LeftBar = () => {
   return (
-    <section className="md:sticky top-6 h-fit w-full md:w-96 shrink-0 noscrollbar">
+    <section className="md:sticky top-20 h-fit w-full md:w-96 shrink-0 noscrollbar">
       <div className="flex flex-col items-start space-y-4 rounded-lg  pt-6 px-6 pb-2">
         <ProfileCard />
         <p className="mt-2 md:mt-4 text-base-content text-sm md:text-base">
