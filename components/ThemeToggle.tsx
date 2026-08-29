@@ -53,7 +53,7 @@ export default function ThemeToggle() {
   };
 
   return (
-    <div className="fixed bottom-10 left-10">
+    <div className="md:fixed md:bottom-10 md:left-10">
       <button
         type="button"
         onClick={cycle}
