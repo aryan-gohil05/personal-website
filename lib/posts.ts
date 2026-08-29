@@ -43,3 +43,11 @@ export const getPost = cache(async (slug: string) => {
   const { default: Content, metadata } = await importPost(slug);
   return { Content, metadata };
 });
+
+export function formatPostDate(date: string): string {
+  return new Date(date).toLocaleDateString("en-GB", {
+    month: "short",
+    day: "numeric",
+    year: "numeric",
+  });
+}
