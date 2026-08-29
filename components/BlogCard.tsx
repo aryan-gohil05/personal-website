@@ -15,7 +15,7 @@ export default function BlogCard({
   return (
     <Link
       href={`/blog/${slug}`}
-      className="flex flex-col gap-1.5 rounded-lg bg-base-100 p-4 ring-1 ring-base-content/10 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+      className="group flex flex-col gap-1.5 rounded-lg bg-base-100 p-4 ring-1 ring-base-content/10 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
     >
       <CoverImage
         src={coverImage}
@@ -27,14 +27,16 @@ export default function BlogCard({
         className="rounded-lg"
       />
       <div className="flex items-center justify-between">
-        <span className="text-xs font-semibold uppercase tracking-wide text-primary">
+        <span className="text-xs font-semibold uppercase tracking-wide text-secondary">
           {category}
         </span>
         <time dateTime={date} className="text-sm text-base-content/70">
           {formatPostDate(date)}
         </time>
       </div>
-      <h2 className="text-lg font-bold">{title}</h2>
+      <h2 className="text-lg font-bold transition-colors duration-300 group-hover:text-secondary">
+        {title}
+      </h2>
       <p className="text-base-content/90">{description}</p>
       <BlogIcon />
     </Link>

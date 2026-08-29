@@ -1,8 +1,17 @@
 import type { MDXComponents } from "mdx/types";
+import type { ReactNode } from "react";
+import { slugify } from "@/lib/slugify";
+
+function headingText(children: ReactNode): string {
+  return typeof children === "string" ? children : String(children);
+}
 
 const components: MDXComponents = {
   h2: ({ children }) => (
-    <h2 className="mt-10 mb-3 text-2xl font-black text-base-content">
+    <h2
+      id={slugify(headingText(children))}
+      className="mt-10 mb-3 text-2xl font-black text-base-content"
+    >
       {children}
     </h2>
   ),
