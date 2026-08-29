@@ -11,6 +11,9 @@ const THEME_INIT_SCRIPT = `
       document.documentElement.setAttribute("data-theme", "winter");
     } else if (theme === "dark") {
       document.documentElement.setAttribute("data-theme", "night");
+    } else {
+      var prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+      document.documentElement.setAttribute("data-theme", prefersDark ? "night" : "winter");
     }
   } catch (e) {}
 })();

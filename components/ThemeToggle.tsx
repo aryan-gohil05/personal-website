@@ -13,6 +13,12 @@ const LABEL: Record<ThemeMode, string> = {
   dark: "Dark",
 };
 
+function resolveAutoTheme(): "winter" | "night" {
+  return window.matchMedia("(prefers-color-scheme: dark)").matches
+    ? "night"
+    : "winter";
+}
+
 function applyTheme(mode: ThemeMode) {
   const root = document.documentElement;
   if (mode === "light") {
@@ -20,7 +26,7 @@ function applyTheme(mode: ThemeMode) {
   } else if (mode === "dark") {
     root.setAttribute("data-theme", "night");
   } else {
-    root.removeAttribute("data-theme");
+    root.setAttribute("data-theme", resolveAutoTheme());
   }
 }
 
@@ -43,6 +49,12 @@ export default function ThemeToggle({ inline = false }: { inline?: boolean }) {
 
   useEffect(() => {
     applyTheme(mode);
+    if (mode !== "auto") return;
+
+    const media = window.matchMedia("(prefers-color-scheme: dark)");
+    const handleChange = () => applyTheme("auto");
+    media.addEventListener("change", handleChange);
+    return () => media.removeEventListener("change", handleChange);
   }, [mode]);
 
   const cycle = () => {
