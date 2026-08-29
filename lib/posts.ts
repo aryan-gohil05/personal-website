@@ -1,6 +1,7 @@
 import fs from "fs";
 import path from "path";
-import type { ComponentType } from "react";
+import { cache, type ComponentType } from "react";
+import { slugify } from "./slugify";
 
 const POSTS_DIR = path.join(process.cwd(), "content/blog");
 
@@ -39,7 +40,31 @@ export async function getAllPosts(): Promise<Post[]> {
   return posts.sort((a, b) => (a.date < b.date ? 1 : -1));
 }
 
-export async function getPost(slug: string) {
+export const getPost = cache(async (slug: string) => {
   const { default: Content, metadata } = await importPost(slug);
   return { Content, metadata };
+});
+
+export interface PostHeading {
+  text: string;
+  slug: string;
+}
+
+export function getPostHeadings(slug: string): PostHeading[] {
+  const filePath = path.join(POSTS_DIR, `${slug}.mdx`);
+  const raw = fs.readFileSync(filePath, "utf-8");
+  const matches = raw.matchAll(/^##\s+(.+)$/gm);
+
+  return Array.from(matches).map((match) => {
+    const text = match[1].trim();
+    return { text, slug: slugify(text) };
+  });
+}
+
+export function formatPostDate(date: string): string {
+  return new Date(date).toLocaleDateString("en-GB", {
+    month: "short",
+    day: "numeric",
+    year: "numeric",
+  });
 }

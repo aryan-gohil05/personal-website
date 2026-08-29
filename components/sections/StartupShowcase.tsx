@@ -2,13 +2,13 @@ import Image from "next/image";
 
 export default function StartupShowcase() {
   return (
-    <main>
-      <h2 className="text-xl font-bold mb-2">My Business</h2>
+    <div>
+      <h2 className="text-lg md:text-xl font-bold mb-2">My Business</h2>
       <a
         href="https://upvoted.tech"
         target="_blank"
         rel="noopener noreferrer"
-        className="group mx-auto w-7/8 md:w-full block rounded-lg border border-base-300 bg-base-100 p-3 md:p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+        className="group block rounded-lg border border-base-300 bg-base-100 p-3 md:p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
       >
         <div className="flex flex-col gap-1 md:gap-4">
           <div className="flex items-center gap-2 md:gap-4">
@@ -49,6 +49,6 @@ export default function StartupShowcase() {
           </p>
         </div>
       </a>
-    </main>
+    </div>
   );
 }

@@ -38,7 +38,7 @@ function getServerSnapshot(): ThemeMode {
   return "auto";
 }
 
-export default function ThemeToggle() {
+export default function ThemeToggle({ inline = false }: { inline?: boolean }) {
   const mode = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
 
   useEffect(() => {
@@ -53,7 +53,7 @@ export default function ThemeToggle() {
   };
 
   return (
-    <div className="fixed bottom-10 left-10">
+    <div className={inline ? "" : "md:fixed md:bottom-10 md:left-10"}>
       <button
         type="button"
         onClick={cycle}
