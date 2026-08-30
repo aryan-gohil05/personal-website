@@ -23,6 +23,10 @@ const WorthYourTime = async () => {
         <h3 className="text-sm font-semibold uppercase tracking-wide text-base-content/50">
           Watching &amp; Listening
         </h3>
+        <h2 className="mt-4 text-sm text-base-content/60">
+          I&apos;m currently working on a list of podcasts, YouTube channels,
+          and other content that I recommend.
+        </h2>
       </div>
     </section>
   );
