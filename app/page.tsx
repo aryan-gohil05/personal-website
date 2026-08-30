@@ -10,8 +10,22 @@ export const metadata: Metadata = {
   title: "Aryan Gohil | Personal Website | SaaS Startup Founder",
   description:
     "My personal website to show my portfolio of startups, blogs, and content that I recommend.",
-  appleWebApp: {
-    title: "Aryan Gohil",
+  openGraph: {
+    title: "Aryan Gohil | Personal Website | SaaS Startup Founder",
+    description:
+      "My personal website to show my portfolio of startups, blogs, and content that I recommend.",
+    type: "website",
+    url: "/",
+    siteName: "Aryan Gohil",
+    locale: "en-GB",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Aryan Gohil | Personal Website | SaaS Startup Founder",
+    description:
+      "My personal website to show my portfolio of startups, blogs, and content that I recommend.",
+    creator: "@AryanGohil_",
+    site: "@AryanGohil_",
   },
 };
 

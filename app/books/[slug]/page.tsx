@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import ProgressTracker from "@/components/ProgressTracker";
+import ShareButton from "@/components/ShareButton";
 import ThemeToggle from "@/components/ThemeToggle";
 import { formatDate } from "@/lib/date";
 import { getBook } from "@/lib/books";
@@ -11,10 +12,26 @@ export async function generateMetadata({
 }: PageProps<"/books/[slug]">): Promise<Metadata> {
   const { slug } = await params;
   const { metadata } = await getBook(slug);
+  const description = `My review of ${metadata.title} by ${metadata.author}.`;
 
   return {
     title: `${metadata.title} | Aryan Gohil`,
-    description: `My review of ${metadata.title} by ${metadata.author}.`,
+    description,
+    openGraph: {
+      title: metadata.title,
+      description,
+      type: "article",
+      url: `/books/${slug}`,
+      siteName: "Aryan Gohil",
+      locale: "en-GB",
+      images: [metadata.coverImage],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: metadata.title,
+      description,
+      images: [metadata.coverImage],
+    },
   };
 }
 
@@ -49,7 +66,7 @@ export default async function BookReview({
             </svg>
             Home
           </Link>
-          <ThemeToggle inline />
+          <ShareButton title={metadata.title} />
         </div>
 
         <article className="mt-10">
@@ -101,6 +118,10 @@ export default async function BookReview({
             <Content />
           </div>
         </article>
+      </div>
+
+      <div className="flex justify-center pb-10">
+        <ThemeToggle />
       </div>
     </main>
   );

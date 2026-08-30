@@ -1,7 +1,15 @@
 import { Bricolage_Grotesque } from "next/font/google";
 import Script from "next/script";
+import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import "./globals.css";
+
+export const metadata: Metadata = {
+  metadataBase: new URL("https://aryangohil.com"),
+  appleWebApp: {
+    title: "Aryan Gohil",
+  },
+};
 
 const THEME_INIT_SCRIPT = `
 (function () {
