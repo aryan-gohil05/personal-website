@@ -5,26 +5,40 @@ import WorthYourTime from "../components/sections/WorthYourTime";
 import Socials from "../components/Socials";
 import type { Metadata } from "next";
 
+const metaTitle = "Aryan Gohil | Personal Website | SaaS Founder";
+
+const metaDescription =
+  "My personal website featuring my portfolio of SaaS startups, blog posts on business, mindset, anything I find interesting, and content I recommend.";
+
 export const metadata: Metadata = {
-  title: "Aryan Gohil | Personal Website | SaaS Startup Founder",
-  description:
-    "My personal website to show my portfolio of startups, blogs, and content that I recommend.",
+  title: metaTitle,
+  description: metaDescription,
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
-    title: "Aryan Gohil | Personal Website | SaaS Startup Founder",
-    description:
-      "My personal website to show my portfolio of startups, blogs, and content that I recommend.",
+    title: metaTitle,
+    description: metaDescription,
     type: "website",
     url: "/",
     siteName: "Aryan Gohil",
     locale: "en-GB",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: metaTitle,
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Aryan Gohil | Personal Website | SaaS Startup Founder",
-    description:
-      "My personal website to show my portfolio of startups, blogs, and content that I recommend.",
+    title: metaTitle,
+    description: metaDescription,
     creator: "@AryanGohil_",
     site: "@AryanGohil_",
+    images: ["/og-image.png"],
   },
 };
 

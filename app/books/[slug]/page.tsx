@@ -17,6 +17,9 @@ export async function generateMetadata({
   return {
     title: `${metadata.title} | Aryan Gohil`,
     description,
+    alternates: {
+      canonical: `/books/${slug}`,
+    },
     openGraph: {
       title: metadata.title,
       description,
