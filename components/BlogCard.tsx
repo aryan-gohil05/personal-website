@@ -3,6 +3,10 @@ import BlogIcon from "@/components/BlogIcon";
 import CoverImage from "@/components/CoverImage";
 import { formatPostDate, type Post } from "@/lib/posts";
 
+type BlogCardProps = Post & {
+  cropCoverOnDesktop?: boolean;
+};
+
 export default function BlogCard({
   slug,
   title,
@@ -11,7 +15,8 @@ export default function BlogCard({
   category,
   coverImage,
   coverImageDark,
-}: Post) {
+  cropCoverOnDesktop = false,
+}: BlogCardProps) {
   return (
     <Link
       href={`/blog/${slug}`}
@@ -24,7 +29,11 @@ export default function BlogCard({
         width={500}
         height={200}
         priority
-        className="rounded-lg"
+        className={
+          cropCoverOnDesktop
+            ? "rounded-lg md:aspect-320/218 md:w-full md:object-cover"
+            : "rounded-lg"
+        }
       />
       <div className="flex items-center justify-between">
         <span className="text-xs font-semibold uppercase tracking-wide text-secondary">
@@ -38,7 +47,9 @@ export default function BlogCard({
         {title}
       </h2>
       <p className="text-base-content/90">{description}</p>
-      <BlogIcon />
+      <div className="mt-auto">
+        <BlogIcon />
+      </div>
     </Link>
   );
 }
