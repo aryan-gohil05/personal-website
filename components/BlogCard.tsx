@@ -31,7 +31,7 @@ export default function BlogCard({
         priority
         className={
           cropCoverOnDesktop
-            ? "rounded-lg md:aspect-320/218 md:w-full md:object-cover"
+            ? "rounded-lg md:aspect-320/218 md:h-auto md:w-full md:object-cover"
             : "rounded-lg"
         }
       />

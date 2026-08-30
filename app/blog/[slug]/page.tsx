@@ -109,7 +109,7 @@ export default async function BlogPost({ params }: PageProps<"/blog/[slug]">) {
               width={1000}
               height={420}
               priority
-              className="mt-10 w-full rounded-xl"
+              className="mt-10 h-auto w-full rounded-xl"
             />
 
             <div className="mt-10">

@@ -69,7 +69,7 @@ export default function ThemeToggle({ inline = false }: { inline?: boolean }) {
       <button
         type="button"
         onClick={cycle}
-        className="btn btn-sm gap-2"
+        className="btn btn-sm btn-secondary gap-2"
         aria-label={`Theme: ${LABEL[mode]}. Click to change.`}
       >
         {mode === "auto" && (

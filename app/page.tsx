@@ -39,11 +39,8 @@ export default function Home() {
           <StartupShowcase />
           <Blog />
           <WorthYourTime />
-          <div className="border-t border-base-content pt-8 md:hidden">
+          <div className="border-t border-base-content py-8 md:hidden">
             <Socials />
-          </div>
-          <div className="flex justify-center md:hidden">
-            <ThemeToggle />
           </div>
         </section>
       </div>

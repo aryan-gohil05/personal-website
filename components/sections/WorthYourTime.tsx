@@ -5,7 +5,7 @@ const WorthYourTime = async () => {
   const books = await getAllBooks();
 
   return (
-    <section>
+    <section id="worth-your-time" className="scroll-mt-24">
       <h2 className="text-lg md:text-xl font-bold mb-2">Worth Your Time</h2>
 
       <div className="mt-6">
