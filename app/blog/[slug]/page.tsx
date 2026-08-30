@@ -3,7 +3,8 @@ import Link from "next/link";
 import Avatar from "@/components/Avatar";
 import BlogCard from "@/components/BlogCard";
 import CoverImage from "@/components/CoverImage";
-import ScrollProgress from "@/components/ScrollProgress";
+import ProgressTracker from "@/components/ProgressTracker";
+import ShareButton from "@/components/ShareButton";
 import ThemeToggle from "@/components/ThemeToggle";
 import {
   formatPostDate,
@@ -21,6 +22,21 @@ export async function generateMetadata({
   return {
     title: `${metadata.title} | Aryan Gohil`,
     description: metadata.description,
+    openGraph: {
+      title: metadata.title,
+      description: metadata.description,
+      type: "article",
+      url: `/blog/${slug}`,
+      siteName: "Aryan Gohil",
+      locale: "en-GB",
+      images: [metadata.coverImage],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: metadata.title,
+      description: metadata.description,
+      images: [metadata.coverImage],
+    },
   };
 }
 
@@ -34,7 +50,7 @@ export default async function BlogPost({ params }: PageProps<"/blog/[slug]">) {
 
   return (
     <main className="min-h-screen bg-base-300">
-      <ScrollProgress />
+      <ProgressTracker />
 
       <div className="mx-auto max-w-3xl px-6 py-10 md:pb-16 pt-12 lg:flex lg:max-w-7xl lg:items-start lg:gap-12">
         <div className="lg:min-w-0 lg:flex-1 lg:ml-auto lg:max-w-2xl">
@@ -58,7 +74,7 @@ export default async function BlogPost({ params }: PageProps<"/blog/[slug]">) {
               </svg>
               Home
             </Link>
-            <ThemeToggle inline />
+            <ShareButton title={metadata.title} />
           </div>
 
           <article className="mt-10">
@@ -134,6 +150,10 @@ export default async function BlogPost({ params }: PageProps<"/blog/[slug]">) {
             </ul>
           </aside>
         )}
+      </div>
+
+      <div className="flex justify-center pb-10">
+        <ThemeToggle />
       </div>
     </main>
   );

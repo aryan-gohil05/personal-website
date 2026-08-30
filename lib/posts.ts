@@ -2,6 +2,7 @@ import fs from "fs";
 import path from "path";
 import { cache, type ComponentType } from "react";
 import { slugify } from "./slugify";
+import { formatDate } from "./date";
 
 const POSTS_DIR = path.join(process.cwd(), "content/blog");
 
@@ -61,10 +62,4 @@ export function getPostHeadings(slug: string): PostHeading[] {
   });
 }
 
-export function formatPostDate(date: string): string {
-  return new Date(date).toLocaleDateString("en-GB", {
-    month: "short",
-    day: "numeric",
-    year: "numeric",
-  });
-}
+export const formatPostDate = formatDate;

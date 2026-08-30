@@ -1,6 +1,7 @@
 import LeftBar from "../components/sections/LeftBar";
 import StartupShowcase from "../components/sections/StartupShowcase";
 import Blog from "../components/sections/Blog";
+import WorthYourTime from "../components/sections/WorthYourTime";
 import Socials from "../components/Socials";
 import ThemeToggle from "../components/ThemeToggle";
 import type { Metadata } from "next";
@@ -9,8 +10,22 @@ export const metadata: Metadata = {
   title: "Aryan Gohil | Personal Website | SaaS Startup Founder",
   description:
     "My personal website to show my portfolio of startups, blogs, and content that I recommend.",
-  appleWebApp: {
-    title: "Aryan Gohil",
+  openGraph: {
+    title: "Aryan Gohil | Personal Website | SaaS Startup Founder",
+    description:
+      "My personal website to show my portfolio of startups, blogs, and content that I recommend.",
+    type: "website",
+    url: "/",
+    siteName: "Aryan Gohil",
+    locale: "en-GB",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Aryan Gohil | Personal Website | SaaS Startup Founder",
+    description:
+      "My personal website to show my portfolio of startups, blogs, and content that I recommend.",
+    creator: "@AryanGohil_",
+    site: "@AryanGohil_",
   },
 };
 
@@ -23,9 +38,7 @@ export default function Home() {
         <section className="min-w-0 flex-1 space-y-12">
           <StartupShowcase />
           <Blog />
-          <div>
-            <h2 className="text-xl font-bold">Worth Your Time</h2>
-          </div>
+          <WorthYourTime />
           <div className="border-t border-base-content pt-8 md:hidden">
             <Socials />
           </div>

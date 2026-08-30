@@ -1,7 +1,15 @@
 import { Bricolage_Grotesque } from "next/font/google";
 import Script from "next/script";
+import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import "./globals.css";
+
+export const metadata: Metadata = {
+  metadataBase: new URL("https://aryangohil.com"),
+  appleWebApp: {
+    title: "Aryan Gohil",
+  },
+};
 
 const THEME_INIT_SCRIPT = `
 (function () {
@@ -11,6 +19,9 @@ const THEME_INIT_SCRIPT = `
       document.documentElement.setAttribute("data-theme", "winter");
     } else if (theme === "dark") {
       document.documentElement.setAttribute("data-theme", "night");
+    } else {
+      var prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+      document.documentElement.setAttribute("data-theme", prefersDark ? "night" : "winter");
     }
   } catch (e) {}
 })();
