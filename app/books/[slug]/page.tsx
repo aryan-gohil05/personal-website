@@ -17,6 +17,9 @@ export async function generateMetadata({
   return {
     title: `${metadata.title} | Aryan Gohil`,
     description,
+    alternates: {
+      canonical: `/books/${slug}`,
+    },
     openGraph: {
       title: metadata.title,
       description,
@@ -48,7 +51,7 @@ export default async function BookReview({
       <div className="mx-auto max-w-3xl px-6 py-10 md:pb-16 pt-12">
         <div className="flex items-center justify-between">
           <Link
-            href="/"
+            href="/#worth-your-time"
             className="inline-flex items-center gap-2 text-sm font-semibold text-base-content/70 hover:text-secondary"
           >
             <svg
@@ -64,7 +67,7 @@ export default async function BookReview({
               <path d="M19 12H5" />
               <path d="m12 19-7-7 7-7" />
             </svg>
-            Home
+            Back
           </Link>
           <ShareButton title={metadata.title} />
         </div>

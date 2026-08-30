@@ -3,9 +3,7 @@ import BlogIcon from "@/components/BlogIcon";
 import CoverImage from "@/components/CoverImage";
 import { formatPostDate, type Post } from "@/lib/posts";
 
-type BlogCardProps = Post & {
-  cropCoverOnDesktop?: boolean;
-};
+type BlogCardProps = Post;
 
 export default function BlogCard({
   slug,
@@ -15,7 +13,6 @@ export default function BlogCard({
   category,
   coverImage,
   coverImageDark,
-  cropCoverOnDesktop = false,
 }: BlogCardProps) {
   return (
     <Link
@@ -29,11 +26,7 @@ export default function BlogCard({
         width={500}
         height={200}
         priority
-        className={
-          cropCoverOnDesktop
-            ? "rounded-lg md:aspect-320/218 md:w-full md:object-cover"
-            : "rounded-lg"
-        }
+        className="aspect-320/218 w-full rounded-lg object-cover"
       />
       <div className="flex items-center justify-between">
         <span className="text-xs font-semibold uppercase tracking-wide text-secondary">
@@ -43,9 +36,9 @@ export default function BlogCard({
           {formatPostDate(date)}
         </time>
       </div>
-      <h2 className="text-lg font-bold transition-colors duration-300 group-hover:text-secondary">
+      <h3 className="text-lg font-bold transition-colors duration-300 group-hover:text-secondary">
         {title}
-      </h2>
+      </h3>
       <p className="text-base-content/90">{description}</p>
       <div className="mt-auto">
         <BlogIcon />

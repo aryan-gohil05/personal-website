@@ -5,14 +5,14 @@ const WorthYourTime = async () => {
   const books = await getAllBooks();
 
   return (
-    <section>
+    <section id="worth-your-time" className="scroll-mt-24">
       <h2 className="text-lg md:text-xl font-bold mb-2">Worth Your Time</h2>
 
       <div className="mt-6">
         <h3 className="text-sm font-semibold uppercase tracking-wide text-base-content/50">
-          Books
+          Book Recommendations
         </h3>
-        <div className="mt-4 grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
+        <div className="mt-4 grid grid-cols-[repeat(auto-fill,minmax(120px,1fr))] gap-4 sm:grid-cols-[repeat(auto-fill,minmax(140px,1fr))]">
           {books.map((book) => (
             <BookCard key={book.slug} {...book} />
           ))}
@@ -23,10 +23,10 @@ const WorthYourTime = async () => {
         <h3 className="text-sm font-semibold uppercase tracking-wide text-base-content/50">
           Watching &amp; Listening
         </h3>
-        <h2 className="mt-4 text-sm text-base-content/60">
+        <h4 className="mt-4 text-sm text-base-content/60">
           I&apos;m currently working on a list of podcasts, YouTube channels,
           and other content that I recommend.
-        </h2>
+        </h4>
       </div>
     </section>
   );

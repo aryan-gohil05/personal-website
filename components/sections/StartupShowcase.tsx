@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function StartupShowcase() {
   return (
-    <div>
+    <div id="business" className="scroll-mt-24">
       <h2 className="text-lg md:text-xl font-bold mb-2">My Business</h2>
       <a
         href="https://upvoted.tech"

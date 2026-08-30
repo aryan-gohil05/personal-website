@@ -7,7 +7,9 @@ export default function ProfileCard() {
         <Avatar className="w-26 md:w-48" priority />
       </div>
       <div className="w-full text-left">
-        <h1 className="text-3xl md:text-4xl font-black">Aryan Gohil</h1>
+        <h1 className="text-2xl sm:text-3xl md:text-4xl font-black">
+          Aryan Gohil
+        </h1>
         <div className="mt-2 md:mt-4 flex flex-col md:flex-row w-full items-start md:items-center gap-2 md:gap-6 text-base-content/90">
           <div className="flex items-center gap-1">
             <svg
