@@ -56,7 +56,7 @@ export default async function BlogPost({ params }: PageProps<"/blog/[slug]">) {
         <div className="lg:min-w-0 lg:flex-1 lg:ml-auto lg:max-w-2xl">
           <div className="flex items-center justify-between">
             <Link
-              href="/"
+              href="/#posts"
               className="inline-flex items-center gap-2 text-sm font-semibold text-base-content/70 hover:text-secondary"
             >
               <svg
@@ -72,7 +72,7 @@ export default async function BlogPost({ params }: PageProps<"/blog/[slug]">) {
                 <path d="M19 12H5" />
                 <path d="m12 19-7-7 7-7" />
               </svg>
-              Home
+              Back
             </Link>
             <ShareButton title={metadata.title} />
           </div>

@@ -3,7 +3,6 @@ import StartupShowcase from "../components/sections/StartupShowcase";
 import Blog from "../components/sections/Blog";
 import WorthYourTime from "../components/sections/WorthYourTime";
 import Socials from "../components/Socials";
-import ThemeToggle from "../components/ThemeToggle";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {

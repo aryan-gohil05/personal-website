@@ -30,7 +30,7 @@ export default function ShareButton({ title }: ShareButtonProps) {
     <button
       type="button"
       onClick={handleShare}
-      className="btn btn-sm gap-2"
+      className="btn btn-sm btn-secondary gap-2"
       aria-label="Share this page"
     >
       {copied ? (
@@ -53,7 +53,7 @@ export default function ShareButton({ title }: ShareButtonProps) {
             <path d="m8.59 13.51 6.83 3.98" />
             <path d="m15.41 6.51-6.82 3.98" />
           </svg>
-          Share
+          <p className="hidden md:inline">Share</p>
         </>
       )}
     </button>
