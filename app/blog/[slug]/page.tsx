@@ -3,7 +3,7 @@ import Link from "next/link";
 import Avatar from "@/components/Avatar";
 import BlogCard from "@/components/BlogCard";
 import CoverImage from "@/components/CoverImage";
-import ScrollProgress from "@/components/ScrollProgress";
+import ProgressTracker from "@/components/ProgressTracker";
 import ThemeToggle from "@/components/ThemeToggle";
 import {
   formatPostDate,
@@ -34,7 +34,7 @@ export default async function BlogPost({ params }: PageProps<"/blog/[slug]">) {
 
   return (
     <main className="min-h-screen bg-base-300">
-      <ScrollProgress />
+      <ProgressTracker />
 
       <div className="mx-auto max-w-3xl px-6 py-10 md:pb-16 pt-12 lg:flex lg:max-w-7xl lg:items-start lg:gap-12">
         <div className="lg:min-w-0 lg:flex-1 lg:ml-auto lg:max-w-2xl">

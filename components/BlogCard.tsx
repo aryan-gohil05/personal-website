@@ -20,7 +20,7 @@ export default function BlogCard({
   return (
     <Link
       href={`/blog/${slug}`}
-      className="group flex flex-col gap-1.5 rounded-lg bg-base-100 p-4 ring-1 ring-base-content/10 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+      className="group flex flex-col gap-1.5 rounded-lg bg-base-100 p-4 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
     >
       <CoverImage
         src={coverImage}
