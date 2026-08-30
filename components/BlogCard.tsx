@@ -31,8 +31,8 @@ export default function BlogCard({
         priority
         className={
           cropCoverOnDesktop
-            ? "rounded-lg md:aspect-320/218 md:h-auto md:w-full md:object-cover"
-            : "rounded-lg"
+            ? "w-full h-auto rounded-lg md:aspect-320/218 md:object-cover"
+            : "w-full h-auto rounded-lg"
         }
       />
       <div className="flex items-center justify-between">
