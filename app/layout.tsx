@@ -9,6 +9,17 @@ export const metadata: Metadata = {
   appleWebApp: {
     title: "Aryan Gohil",
   },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
 };
 
 const THEME_INIT_SCRIPT = `

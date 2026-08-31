@@ -26,6 +26,9 @@ export async function generateMetadata({
     description: metadata.description,
     alternates: {
       canonical: `/blog/${slug}`,
+      languages: {
+        "en-GB": `/blog/${slug}`,
+      },
     },
     openGraph: {
       title: metadata.title,
@@ -41,6 +44,8 @@ export async function generateMetadata({
       title: metadata.title,
       description: metadata.description,
       images: [ogImage],
+      site: "@AryanGohil_",
+      creator: "@AryanGohil_",
     },
   };
 }

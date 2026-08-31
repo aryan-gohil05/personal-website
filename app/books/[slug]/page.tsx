@@ -21,6 +21,9 @@ export async function generateMetadata({
     description,
     alternates: {
       canonical: `/books/${slug}`,
+      languages: {
+        "en-GB": `/books/${slug}`,
+      },
     },
     openGraph: {
       title: metadata.title,
@@ -36,6 +39,8 @@ export async function generateMetadata({
       title: metadata.title,
       description,
       images: [ogImage],
+      site: "@AryanGohil_",
+      creator: "@AryanGohil_",
     },
   };
 }
