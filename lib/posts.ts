@@ -20,8 +20,9 @@ export interface Post extends PostMetadata {
 }
 
 async function importPost(slug: string) {
-  const mod: { default: ComponentType; metadata: PostMetadata } =
-    await import(`../content/blog/${slug}.mdx`);
+  const mod: { default: ComponentType; metadata: PostMetadata } = await import(
+    `../content/blog/${slug}.mdx`
+  );
   return mod;
 }
 

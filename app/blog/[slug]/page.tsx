@@ -6,6 +6,7 @@ import CoverImage from "@/components/CoverImage";
 import ProgressTracker from "@/components/ProgressTracker";
 import ShareButton from "@/components/ShareButton";
 import ThemeToggle from "@/components/ThemeToggle";
+import { getOgImage } from "@/lib/og-image";
 import {
   formatPostDate,
   getAllPosts,
@@ -18,6 +19,7 @@ export async function generateMetadata({
 }: PageProps<"/blog/[slug]">): Promise<Metadata> {
   const { slug } = await params;
   const { metadata } = await getPost(slug);
+  const ogImage = getOgImage(metadata.coverImage);
 
   return {
     title: `${metadata.title} | Aryan Gohil`,
@@ -32,13 +34,13 @@ export async function generateMetadata({
       url: `/blog/${slug}`,
       siteName: "Aryan Gohil",
       locale: "en-GB",
-      images: [metadata.coverImage],
+      images: [ogImage],
     },
     twitter: {
       card: "summary_large_image",
       title: metadata.title,
       description: metadata.description,
-      images: [metadata.coverImage],
+      images: [ogImage],
     },
   };
 }

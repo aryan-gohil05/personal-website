@@ -4,11 +4,12 @@ import Blog from "../components/sections/Blog";
 import WorthYourTime from "../components/sections/WorthYourTime";
 import Socials from "../components/Socials";
 import type { Metadata } from "next";
+import { getOgImage } from "@/lib/og-image";
 
-const metaTitle = "Aryan Gohil | Personal Website | SaaS Founder";
+const metaTitle = "Aryan Gohil | SaaS Founder & Software Engineer";
 
 const metaDescription =
-  "My personal website featuring my portfolio of SaaS startups, blog posts on business, mindset, anything I find interesting, and content I recommend.";
+  "Hi, I'm Aryan, a SaaS founder sharing my journey building and scaling startups, plus blog posts, book recommendations, and other content worth your time.";
 
 export const metadata: Metadata = {
   title: metaTitle,
@@ -25,7 +26,7 @@ export const metadata: Metadata = {
     locale: "en-GB",
     images: [
       {
-        url: "/og-image.png",
+        url: getOgImage("/og-image.svg"),
         width: 1200,
         height: 630,
         alt: metaTitle,
@@ -38,7 +39,7 @@ export const metadata: Metadata = {
     description: metaDescription,
     creator: "@AryanGohil_",
     site: "@AryanGohil_",
-    images: ["/og-image.png"],
+    images: [getOgImage("/og-image.svg")],
   },
 };
 

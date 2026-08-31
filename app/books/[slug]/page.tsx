@@ -6,6 +6,7 @@ import ShareButton from "@/components/ShareButton";
 import ThemeToggle from "@/components/ThemeToggle";
 import { formatDate } from "@/lib/date";
 import { getBook } from "@/lib/books";
+import { getOgImage } from "@/lib/og-image";
 
 export async function generateMetadata({
   params,
@@ -13,6 +14,7 @@ export async function generateMetadata({
   const { slug } = await params;
   const { metadata } = await getBook(slug);
   const description = `My review of ${metadata.title} by ${metadata.author}.`;
+  const ogImage = getOgImage(metadata.coverImage);
 
   return {
     title: `${metadata.title} | Aryan Gohil`,
@@ -27,13 +29,13 @@ export async function generateMetadata({
       url: `/books/${slug}`,
       siteName: "Aryan Gohil",
       locale: "en-GB",
-      images: [metadata.coverImage],
+      images: [ogImage],
     },
     twitter: {
       card: "summary_large_image",
       title: metadata.title,
       description,
-      images: [metadata.coverImage],
+      images: [ogImage],
     },
   };
 }
