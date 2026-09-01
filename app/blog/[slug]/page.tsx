@@ -6,7 +6,7 @@ import BlogCard from "@/components/BlogCard";
 import CoverImage from "@/components/CoverImage";
 import ProgressTracker from "@/components/ProgressTracker";
 import ShareButton from "@/components/ShareButton";
-import ThemeToggle from "@/components/ThemeToggle";
+import Footer from "@/components/sections/Footer";
 import { getOgImage } from "@/lib/og-image";
 import {
   formatPostDate,
@@ -144,10 +144,7 @@ export default async function BlogPost({ params }: PageProps<"/blog/[slug]">) {
 
         <ArticleToc headings={headings} />
       </div>
-
-      <div className="flex justify-center pb-10">
-        <ThemeToggle />
-      </div>
+      <Footer />
     </main>
   );
 }

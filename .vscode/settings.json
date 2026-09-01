@@ -1,3 +1,10 @@
 {
-  "css.lint.unknownAtRules": "ignore"
+  "css.lint.unknownAtRules": "ignore",
+  "ltex.language": "en-GB",
+  "[mdx]": {
+    "editor.unicodeHighlight.ambiguousCharacters": false
+  },
+  "[markdown]": {
+    "editor.unicodeHighlight.ambiguousCharacters": false
+  }
 }

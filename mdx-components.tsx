@@ -46,7 +46,7 @@ const components: MDXComponents = {
     </ol>
   ),
   blockquote: ({ children }) => (
-    <blockquote className="flex flex-row mt-4 max-w-full rounded-2xl border-l-4 border-primary/30 bg-base-300 p-4 italic text-base-content/70">
+    <blockquote className="flex flex-row mt-4 max-w-full rounded-2xl border-l-4 border-primary/30 bg-base-100/90 p-4 italic text-base-content/70">
       <span className="mb-1 block text-3xl leading-none text-primary/40">
         &ldquo;
       </span>
