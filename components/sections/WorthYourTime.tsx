@@ -12,13 +12,14 @@ const WorthYourTime = async () => {
         <h3 className="text-sm font-semibold uppercase tracking-wide text-base-content/50">
           Book Recommendations
         </h3>
-        <div className="mt-4 grid grid-cols-[repeat(auto-fill,minmax(120px,1fr))] gap-4 sm:grid-cols-[repeat(auto-fill,minmax(140px,1fr))]">
+        <div className="mt-4 grid grid-cols-[repeat(auto-fit,minmax(140px,1fr))] gap-4 sm:grid-cols-[repeat(auto-fit,minmax(160px,1fr))]">
           {books.map((book) => (
             <BookCard key={book.slug} {...book} />
           ))}
         </div>
       </div>
 
+      {/* 
       <div className="mt-8">
         <h3 className="text-sm font-semibold uppercase tracking-wide text-base-content/50">
           Watching &amp; Listening
@@ -28,6 +29,7 @@ const WorthYourTime = async () => {
           and other content that I recommend.
         </h4>
       </div>
+      */}
     </section>
   );
 };

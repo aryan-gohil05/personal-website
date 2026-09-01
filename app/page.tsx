@@ -49,7 +49,7 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <main className="min-h-screen bg-base-300">
-      <div className="flex md:flex-row flex-col md:gap-12 px-6 py-2 md:p-14">
+      <div className="mx-auto flex max-w-384 md:flex-row flex-col md:gap-12 px-6 py-2 md:p-14">
         <LeftBar />
         <div className="mt-2 mb-6 border-t border-base-content md:hidden" />
         <section className="min-w-0 flex-1 space-y-12">

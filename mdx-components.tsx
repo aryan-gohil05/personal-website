@@ -10,18 +10,20 @@ const components: MDXComponents = {
   h2: ({ children }) => (
     <h2
       id={slugify(headingText(children))}
-      className="mt-10 mb-3 text-2xl font-black text-base-content"
+      className="mt-4 md:mt-12 text-2xl md:text-4xl font-black tracking-tight text-black/90 dark:text-white"
     >
       {children}
     </h2>
   ),
   h3: ({ children }) => (
-    <h3 className="mt-8 mb-2 text-xl font-bold text-base-content">
+    <h3 className="mt-4 md:mt-8 mb-2 text-xl md:text-2xl font-bold text-black/90 dark:text-white">
       {children}
     </h3>
   ),
   p: ({ children }) => (
-    <p className="mt-4 leading-relaxed text-base-content/90">{children}</p>
+    <p className="mt-4 md:mt-6 leading-relaxed md:leading-8 text-black/90 dark:text-white">
+      {children}
+    </p>
   ),
   a: ({ children, href }) => (
     <a
@@ -34,12 +36,12 @@ const components: MDXComponents = {
     </a>
   ),
   ul: ({ children }) => (
-    <ul className="mt-4 list-disc space-y-2 pl-6 text-base-content/90">
+    <ul className="mt-4 list-disc space-y-2 pl-6 text-black/90 dark:text-white">
       {children}
     </ul>
   ),
   ol: ({ children }) => (
-    <ol className="mt-4 list-decimal space-y-2 pl-6 text-base-content/90">
+    <ol className="mt-4 list-decimal space-y-2 pl-6 text-black/90 dark:text-white">
       {children}
     </ol>
   ),

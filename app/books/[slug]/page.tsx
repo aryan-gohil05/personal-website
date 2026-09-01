@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import Avatar from "@/components/Avatar";
 import ProgressTracker from "@/components/ProgressTracker";
 import ShareButton from "@/components/ShareButton";
 import ThemeToggle from "@/components/ThemeToggle";
@@ -55,7 +56,7 @@ export default async function BookReview({
     <main className="min-h-screen bg-base-300">
       <ProgressTracker />
 
-      <div className="mx-auto max-w-3xl px-6 py-10 md:pb-16 pt-12">
+      <div className="mx-auto max-w-4xl px-6 py-10 md:pb-16 pt-12">
         <div className="flex items-center justify-between">
           <Link
             href="/#worth-your-time"
@@ -80,48 +81,35 @@ export default async function BookReview({
         </div>
 
         <article className="mt-10">
-          <div className="flex gap-6">
+          <div className="flex flex-col gap-6 md:flex-row md:items-start md:justify-between md:gap-10">
+            <div className="min-w-0 flex-1">
+              <h1 className="text-3xl leading-tight font-black text-black/90 dark:text-white md:text-6xl">
+                {metadata.title}
+              </h1>
+
+              <div className="mt-4 flex items-center gap-2 md:mt-8">
+                <Avatar className="w-8" />
+                <span className="text-sm font-semibold text-secondary">
+                  Aryan Gohil
+                </span>
+                <span className="text-sm text-base-content/50">·</span>
+                <time
+                  dateTime={metadata.date}
+                  className="text-sm text-base-content/70"
+                >
+                  {formatDate(metadata.date)}
+                </time>
+              </div>
+            </div>
+
             <Image
               src={metadata.coverImage}
               alt={metadata.title}
               width={300}
               height={450}
               priority
-              className="aspect-2/3 w-28 shrink-0 rounded-lg object-cover ring-1 ring-base-content/10 shadow-sm md:w-40"
+              className="aspect-2/3 w-40 shrink-0 mx-auto rounded-lg object-cover ring-1 ring-base-content/10 shadow-sm md:mx-0 md:w-64"
             />
-            <div className="min-w-0">
-              <h1 className="text-2xl font-black md:text-4xl">
-                {metadata.title}
-              </h1>
-              <p className="mt-1 text-base-content/70">{metadata.author}</p>
-              <time
-                dateTime={metadata.date}
-                className="mt-1 block text-sm text-base-content/50"
-              >
-                {formatDate(metadata.date)}
-              </time>
-              <a
-                href={metadata.externalReviewUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-primary hover:underline"
-              >
-                Also see my review on Goodreads
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="h-3.5 w-3.5"
-                >
-                  <path d="M7 17 17 7" />
-                  <path d="M7 7h10v10" />
-                </svg>
-              </a>
-            </div>
           </div>
 
           <div className="mt-10">

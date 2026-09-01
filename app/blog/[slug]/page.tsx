@@ -62,8 +62,8 @@ export default async function BlogPost({ params }: PageProps<"/blog/[slug]">) {
     <main className="min-h-screen bg-base-300">
       <ProgressTracker />
 
-      <div className="mx-auto max-w-3xl px-6 py-10 md:pb-16 pt-12 lg:flex lg:max-w-7xl lg:items-start lg:gap-12">
-        <div className="lg:min-w-0 lg:flex-1 lg:ml-auto lg:max-w-2xl">
+      <div className="mx-auto max-w-4xl px-6 py-10 md:pb-16 pt-12 lg:flex lg:max-w-7xl lg:items-start lg:gap-12">
+        <div className="lg:min-w-0 lg:flex-1 lg:ml-auto lg:max-w-3xl">
           <div className="flex items-center justify-between">
             <Link
               href="/#posts"

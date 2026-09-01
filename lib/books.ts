@@ -9,23 +9,44 @@ export interface BookMetadata {
   author: string;
   date: string;
   coverImage: string;
-  externalReviewUrl: string;
+  linkToBuy: string;
 }
 
 export interface Book extends BookMetadata {
   slug: string;
 }
 
+const REQUIRED_FIELDS: (keyof BookMetadata)[] = [
+  "title",
+  "author",
+  "date",
+  "coverImage",
+  "linkToBuy",
+];
+
+function validateBookMetadata(slug: string, metadata: BookMetadata): void {
+  for (const field of REQUIRED_FIELDS) {
+    if (!metadata[field]) {
+      throw new Error(
+        `content/books/${slug}.mdx is missing required metadata field "${field}". See content/books/_template.mdx.`,
+      );
+    }
+  }
+}
+
 async function importBook(slug: string) {
   const mod: { default: ComponentType; metadata: BookMetadata } =
     await import(`../content/books/${slug}.mdx`);
+  validateBookMetadata(slug, mod.metadata);
   return mod;
 }
 
 export async function getAllBooks(): Promise<Book[]> {
   const filenames = fs
     .readdirSync(BOOKS_DIR)
-    .filter((filename) => filename.endsWith(".mdx"));
+    .filter(
+      (filename) => filename.endsWith(".mdx") && !filename.startsWith("_"),
+    );
 
   const books = await Promise.all(
     filenames.map(async (filename) => {
