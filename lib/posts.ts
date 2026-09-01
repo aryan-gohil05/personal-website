@@ -1,8 +1,8 @@
 import fs from "fs";
 import path from "path";
 import { cache, type ComponentType } from "react";
-import { slugify } from "./slugify";
 import { formatDate } from "./date";
+import { extractHeadings, type Heading } from "./headings";
 
 const POSTS_DIR = path.join(process.cwd(), "content/blog");
 
@@ -47,20 +47,10 @@ export const getPost = cache(async (slug: string) => {
   return { Content, metadata };
 });
 
-export interface PostHeading {
-  text: string;
-  slug: string;
-}
+export type PostHeading = Heading;
 
 export function getPostHeadings(slug: string): PostHeading[] {
-  const filePath = path.join(POSTS_DIR, `${slug}.mdx`);
-  const raw = fs.readFileSync(filePath, "utf-8");
-  const matches = raw.matchAll(/^##\s+(.+)$/gm);
-
-  return Array.from(matches).map((match) => {
-    const text = match[1].trim();
-    return { text, slug: slugify(text) };
-  });
+  return extractHeadings(path.join(POSTS_DIR, `${slug}.mdx`));
 }
 
 export const formatPostDate = formatDate;

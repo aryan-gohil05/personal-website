@@ -46,7 +46,10 @@ const components: MDXComponents = {
     </ol>
   ),
   blockquote: ({ children }) => (
-    <blockquote className="mt-6 border-l-4 border-primary/30 pl-4 italic text-base-content/70">
+    <blockquote className="flex flex-row mt-4 max-w-full rounded-2xl border-l-4 border-primary/30 bg-base-300 p-4 italic text-base-content/70">
+      <span className="mb-1 block text-3xl leading-none text-primary/40">
+        &ldquo;
+      </span>
       {children}
     </blockquote>
   ),
@@ -56,9 +59,9 @@ const components: MDXComponents = {
     </code>
   ),
   pre: ({ children }) => (
-    <pre className="mt-6 overflow-x-auto rounded-lg bg-base-200 p-4 text-sm">
-      {children}
-    </pre>
+    <div className="mt-6 overflow-x-auto">
+      <pre className="rounded-lg bg-base-200 p-4 text-sm">{children}</pre>
+    </div>
   ),
 };
 

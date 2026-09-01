@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import ArticleToc from "@/components/ArticleToc";
 import Avatar from "@/components/Avatar";
 import BlogCard from "@/components/BlogCard";
 import CoverImage from "@/components/CoverImage";
@@ -141,25 +142,7 @@ export default async function BlogPost({ params }: PageProps<"/blog/[slug]">) {
           )}
         </div>
 
-        {headings.length > 0 && (
-          <aside className="hidden lg:sticky lg:top-40 lg:mt-28 lg:block lg:w-64 lg:shrink-0">
-            <h2 className="text-sm font-semibold uppercase tracking-wide text-base-content/50">
-              In this Post:
-            </h2>
-            <ul className="mt-4 space-y-3 border-l border-base-content/10">
-              {headings.map((heading) => (
-                <li key={heading.slug}>
-                  <a
-                    href={`#${heading.slug}`}
-                    className="-ml-px block border-l-2 border-transparent pl-4 text-sm text-base-content/70 hover:border-primary hover:text-primary"
-                  >
-                    {heading.text}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </aside>
-        )}
+        <ArticleToc headings={headings} />
       </div>
 
       <div className="flex justify-center pb-10">

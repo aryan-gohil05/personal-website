@@ -1,9 +1,9 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 
 export default function ProgressTracker() {
-  const [progress, setProgress] = useState(0);
+  const barRef = useRef<HTMLDivElement>(null);
   const ticking = useRef(false);
 
   useEffect(() => {
@@ -17,7 +17,11 @@ export default function ProgressTracker() {
       // How much of the maximum have I scrolled
       const percentage: number =
         totalScrollHeight > 0 ? (scrolled / totalScrollHeight) * 100 : 0;
-      setProgress(Math.min(100, Math.max(0, percentage)));
+      const clamped = Math.min(100, Math.max(0, percentage));
+
+      if (barRef.current) {
+        barRef.current.style.transform = `scaleX(${clamped / 100})`;
+      }
       ticking.current = false;
     };
 
@@ -38,13 +42,12 @@ export default function ProgressTracker() {
   }, []);
 
   return (
-    <div className="fixed top-0 left-0 z-50 h-1 w-full bg-base-300">
-      {progress > 0 && (
-        <div
-          className="h-full origin-left bg-secondary"
-          style={{ transform: `scaleX(${progress / 100})` }}
-        />
-      )}
+    <div className="fixed top-0 left-0 z-50 h-1.5 w-full bg-base-300">
+      <div
+        ref={barRef}
+        className="h-full origin-left bg-secondary"
+        style={{ transform: "scaleX(0)" }}
+      />
     </div>
   );
 }

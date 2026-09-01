@@ -1,6 +1,7 @@
 import fs from "fs";
 import path from "path";
 import { cache, type ComponentType } from "react";
+import { extractHeadings, type Heading } from "./headings";
 
 const BOOKS_DIR = path.join(process.cwd(), "content/books");
 
@@ -63,3 +64,9 @@ export const getBook = cache(async (slug: string) => {
   const { default: Content, metadata } = await importBook(slug);
   return { Content, metadata };
 });
+
+export type BookHeading = Heading;
+
+export function getBookHeadings(slug: string): BookHeading[] {
+  return extractHeadings(path.join(BOOKS_DIR, `${slug}.mdx`));
+}
