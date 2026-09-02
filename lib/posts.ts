@@ -1,29 +1,48 @@
 import fs from "fs";
 import path from "path";
 import { cache, type ComponentType } from "react";
+import { z } from "zod";
 import { formatDate } from "./date";
 import { extractHeadings, type Heading } from "./headings";
 
 const POSTS_DIR = path.join(process.cwd(), "content/blog");
 
-export interface PostMetadata {
-  title: string;
-  description: string;
-  date: string;
-  category: string;
-  coverImage: string;
-  coverImageDark?: string;
-}
+export const postMetadataSchema = z.object({
+  title: z.string().min(1, "title is required"),
+  description: z.string().min(1, "description is required"),
+  date: z.iso.date("date must be in YYYY-MM-DD format"),
+  category: z.string().min(1, "category is required"),
+  coverImage: z.string().min(1, "coverImage is required"),
+  coverImageDark: z.string().min(1).optional(),
+});
+
+export type PostMetadata = z.infer<typeof postMetadataSchema>;
 
 export interface Post extends PostMetadata {
   slug: string;
 }
 
+function parsePostMetadata(slug: string, metadata: unknown): PostMetadata {
+  const result = postMetadataSchema.safeParse(metadata);
+
+  if (!result.success) {
+    const issues = result.error.issues
+      .map((issue) => `${issue.path.join(".")}: ${issue.message}`)
+      .join(", ");
+    throw new Error(
+      `content/blog/${slug}.mdx has invalid metadata (${issues}).`,
+    );
+  }
+
+  return result.data;
+}
+
 async function importPost(slug: string) {
-  const mod: { default: ComponentType; metadata: PostMetadata } = await import(
+  const mod: { default: ComponentType; metadata: unknown } = await import(
     `../content/blog/${slug}.mdx`
   );
-  return mod;
+  const metadata = parsePostMetadata(slug, mod.metadata);
+  return { default: mod.default, metadata };
 }
 
 export async function getAllPosts(): Promise<Post[]> {

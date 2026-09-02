@@ -1,47 +1,47 @@
 import fs from "fs";
 import path from "path";
 import { cache, type ComponentType } from "react";
+import { z } from "zod";
 import { extractHeadings, type Heading } from "./headings";
 
 const BOOKS_DIR = path.join(process.cwd(), "content/books");
 
-export interface BookMetadata {
-  title: string;
-  longTitle: string;
-  author: string;
-  date: string;
-  coverImage: string;
-  linkToBuy: string;
-}
+export const bookMetadataSchema = z.object({
+  title: z.string().min(1, "title is required"),
+  longTitle: z.string().min(1, "longTitle is required"),
+  author: z.string().min(1, "author is required"),
+  date: z.iso.date("date must be in YYYY-MM-DD format"),
+  coverImage: z.string().min(1, "coverImage is required"),
+  linkToBuy: z.url("linkToBuy must be a valid URL"),
+});
+
+export type BookMetadata = z.infer<typeof bookMetadataSchema>;
 
 export interface Book extends BookMetadata {
   slug: string;
 }
 
-const REQUIRED_FIELDS: (keyof BookMetadata)[] = [
-  "title",
-  "longTitle",
-  "author",
-  "date",
-  "coverImage",
-  "linkToBuy",
-];
+function parseBookMetadata(slug: string, metadata: unknown): BookMetadata {
+  const result = bookMetadataSchema.safeParse(metadata);
 
-function validateBookMetadata(slug: string, metadata: BookMetadata): void {
-  for (const field of REQUIRED_FIELDS) {
-    if (!metadata[field]) {
-      throw new Error(
-        `content/books/${slug}.mdx is missing required metadata field "${field}". See content/books/_template.mdx.`,
-      );
-    }
+  if (!result.success) {
+    const issues = result.error.issues
+      .map((issue) => `${issue.path.join(".")}: ${issue.message}`)
+      .join(", ");
+    throw new Error(
+      `content/books/${slug}.mdx has invalid metadata (${issues}). See content/books/_template.mdx.`,
+    );
   }
+
+  return result.data;
 }
 
 async function importBook(slug: string) {
-  const mod: { default: ComponentType; metadata: BookMetadata } =
-    await import(`../content/books/${slug}.mdx`);
-  validateBookMetadata(slug, mod.metadata);
-  return mod;
+  const mod: { default: ComponentType; metadata: unknown } = await import(
+    `../content/books/${slug}.mdx`
+  );
+  const metadata = parseBookMetadata(slug, mod.metadata);
+  return { default: mod.default, metadata };
 }
 
 export async function getAllBooks(): Promise<Book[]> {
