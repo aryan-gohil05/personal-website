@@ -15,13 +15,13 @@ const BookReviewHeader = ({ metadata }: BookReviewHeaderProps) => {
       <div className="rounded-3xl bg-base-100/90 p-6 md:p-10">
         <div className="flex items-center justify-between">
           <BackButton returnUrl="/#worth-your-time" />
-          <ShareButton title={metadata.title} />
+          <ShareButton title={metadata.longTitle} />
         </div>
 
         <div className="mt-10 flex flex-col gap-6 md:flex-row md:items-start md:justify-between md:gap-10">
           <div className="min-w-0 flex-1">
             <h1 className="text-3xl leading-tight font-black text-black/90 dark:text-white md:text-6xl">
-              {metadata.title}
+              {metadata.longTitle}
             </h1>
 
             <div className="mt-4 flex items-center gap-2 md:mt-8">

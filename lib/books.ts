@@ -7,6 +7,7 @@ const BOOKS_DIR = path.join(process.cwd(), "content/books");
 
 export interface BookMetadata {
   title: string;
+  longTitle: string;
   author: string;
   date: string;
   coverImage: string;
@@ -19,6 +20,7 @@ export interface Book extends BookMetadata {
 
 const REQUIRED_FIELDS: (keyof BookMetadata)[] = [
   "title",
+  "longTitle",
   "author",
   "date",
   "coverImage",

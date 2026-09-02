@@ -5,6 +5,7 @@ import Avatar from "@/components/Avatar";
 import BlogCard from "@/components/BlogCard";
 import CoverImage from "@/components/CoverImage";
 import ProgressTracker from "@/components/ProgressTracker";
+import ReadNext from "@/components/ReadNext";
 import ShareButton from "@/components/ShareButton";
 import Footer from "@/components/sections/Footer";
 import { getOgImage } from "@/lib/og-image";
@@ -63,8 +64,8 @@ export default async function BlogPost({ params }: PageProps<"/blog/[slug]">) {
     <main className="min-h-screen bg-base-300">
       <ProgressTracker />
 
-      <div className="mx-auto max-w-4xl px-6 py-10 md:pb-16 pt-12 lg:flex lg:max-w-7xl lg:items-start lg:gap-12">
-        <div className="lg:min-w-0 lg:flex-1 lg:ml-auto lg:max-w-3xl">
+      <div className="mx-auto max-w-4xl px-6 pt-12 lg:flex lg:max-w-350 lg:items-start lg:gap-12">
+        <div className="lg:min-w-0 lg:flex-1 lg:ml-auto lg:max-w-4xl">
           <div className="flex items-center justify-between">
             <BackButton returnUrl="/#posts" />
             <ShareButton title={metadata.title} />
@@ -109,23 +110,18 @@ export default async function BlogPost({ params }: PageProps<"/blog/[slug]">) {
               <Content />
             </div>
           </article>
-
-          {otherPosts.length > 0 && (
-            <div className="mt-16 border-t border-base-content/10 pt-8">
-              <h2 className="text-sm font-semibold uppercase tracking-wide text-base-content/50">
-                Keep Reading
-              </h2>
-              <div className="mt-4 grid grid-cols-1 gap-4 md:grid-cols-2">
-                {otherPosts.map((post) => (
-                  <BlogCard key={post.slug} {...post} />
-                ))}
-              </div>
-            </div>
-          )}
         </div>
 
         <ArticleToc headings={headings} />
       </div>
+
+      {otherPosts.length > 0 && (
+        <ReadNext>
+          {otherPosts.map((post) => (
+            <BlogCard key={post.slug} {...post} />
+          ))}
+        </ReadNext>
+      )}
       <Footer />
     </main>
   );
