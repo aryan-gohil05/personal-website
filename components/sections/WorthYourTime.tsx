@@ -6,17 +6,11 @@ const WorthYourTime = async () => {
 
   return (
     <section id="worth-your-time" className="scroll-mt-24">
-      <h2 className="text-lg md:text-xl font-bold mb-2">Worth Your Time</h2>
-
-      <div className="mt-6">
-        <h3 className="text-sm font-semibold uppercase tracking-wide text-base-content/50">
-          Book Recommendations
-        </h3>
-        <div className="mt-4 grid grid-cols-[repeat(auto-fill,minmax(280px,1fr))] gap-4">
-          {books.map((book) => (
-            <BookCard key={book.slug} {...book} />
-          ))}
-        </div>
+      <h2 className="text-lg md:text-xl font-bold mb-2">Book Reviews</h2>
+      <div className="grid grid-cols-[repeat(auto-fill,minmax(280px,1fr))] gap-4">
+        {books.map((book) => (
+          <BookCard key={book.slug} {...book} />
+        ))}
       </div>
 
       {/* 
