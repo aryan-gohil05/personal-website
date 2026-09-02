@@ -2,13 +2,19 @@ import type { Heading } from "@/lib/headings";
 
 type ArticleTocProps = {
   headings: Heading[];
+  topOffsetClassName?: string;
 };
 
-export default function inThisArticle({ headings }: ArticleTocProps) {
+export default function inThisArticle({
+  headings,
+  topOffsetClassName = "lg:mt-28",
+}: ArticleTocProps) {
   if (headings.length === 0) return null;
 
   return (
-    <aside className="hidden lg:sticky lg:top-40 lg:mt-28 lg:block lg:w-80 lg:shrink-0">
+    <aside
+      className={`hidden lg:sticky lg:top-40 lg:block lg:w-80 lg:shrink-0 ${topOffsetClassName}`}
+    >
       <div className="border-l pl-4 text-base-300">
         <h2 className="text-lg font-semibold text-black/90 dark:text-white">
           In this article:

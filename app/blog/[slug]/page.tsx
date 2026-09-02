@@ -64,14 +64,14 @@ export default async function BlogPost({ params }: PageProps<"/blog/[slug]">) {
     <main className="min-h-screen bg-base-300">
       <ProgressTracker />
 
-      <div className="mx-auto max-w-4xl px-6 pt-12 lg:flex lg:max-w-350 lg:items-start lg:gap-12">
-        <div className="lg:min-w-0 lg:flex-1 lg:ml-auto lg:max-w-4xl">
-          <div className="flex items-center justify-between">
-            <BackButton returnUrl="/#posts" />
-            <ShareButton title={metadata.title} />
-          </div>
+      <div className="mx-auto max-w-4xl px-6 pt-12 lg:grid lg:max-w-350 lg:grid-cols-[minmax(0,56rem)_20rem] lg:items-start lg:justify-end lg:gap-x-12">
+        <div className="flex items-center justify-between lg:col-start-1">
+          <BackButton returnUrl="/#posts" />
+          <ShareButton title={metadata.title} />
+        </div>
 
-          <article className="mt-10">
+        <article className="lg:contents">
+          <div className="mt-10 lg:col-start-1">
             <span className="text-xs font-semibold uppercase tracking-wide text-primary">
               {metadata.category}
             </span>
@@ -95,24 +95,27 @@ export default async function BlogPost({ params }: PageProps<"/blog/[slug]">) {
                 {formatPostDate(metadata.date)}
               </time>
             </div>
+          </div>
 
-            <CoverImage
-              src={metadata.coverImage}
-              srcDark={metadata.coverImageDark}
-              alt={metadata.title}
-              width={1000}
-              height={420}
-              priority
-              className="mt-10 h-auto w-full rounded-xl"
-            />
+          <CoverImage
+            src={metadata.coverImage}
+            srcDark={metadata.coverImageDark}
+            alt={metadata.title}
+            width={1000}
+            height={420}
+            priority
+            className="mt-10 h-auto w-full rounded-xl lg:col-start-1 lg:row-start-3"
+          />
 
-            <div className="mt-10">
-              <Content />
-            </div>
-          </article>
-        </div>
+          <div className="mt-10 lg:col-start-1">
+            <Content />
+          </div>
+        </article>
 
-        <ArticleToc headings={headings} />
+        <ArticleToc
+          headings={headings}
+          topOffsetClassName="lg:col-start-2 lg:row-start-3 lg:row-span-2 lg:mt-10 lg:self-start"
+        />
       </div>
 
       {otherPosts.length > 0 && (
