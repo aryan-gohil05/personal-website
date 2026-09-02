@@ -11,8 +11,8 @@ type BookReviewHeaderProps = {
 
 const BookReviewHeader = ({ metadata }: BookReviewHeaderProps) => {
   return (
-    <div className="mx-auto max-w-7xl px-6 pt-12">
-      <div className="rounded-3xl bg-base-100/90 p-6 md:p-10">
+    <div className="mx-auto max-w-360 px-6 pt-12">
+      <div className="rounded-3xl bg-base-100/90 p-6 md:p-12">
         <div className="flex items-center justify-between">
           <BackButton returnUrl="/#worth-your-time" />
           <ShareButton title={metadata.longTitle} />
@@ -20,7 +20,7 @@ const BookReviewHeader = ({ metadata }: BookReviewHeaderProps) => {
 
         <div className="mt-10 flex flex-col gap-6 md:flex-row md:items-start md:justify-between md:gap-10">
           <div className="min-w-0 flex-1">
-            <h1 className="text-3xl leading-tight font-black text-black/90 dark:text-white md:text-6xl">
+            <h1 className="text-3xl leading-tight font-black text-black/90 dark:text-white md:text-7xl">
               {metadata.longTitle}
             </h1>
 
@@ -39,14 +39,22 @@ const BookReviewHeader = ({ metadata }: BookReviewHeaderProps) => {
             </div>
           </div>
 
-          <Image
-            src={metadata.coverImage}
-            alt={metadata.title}
-            width={300}
-            height={450}
-            priority
-            className="aspect-2/3 w-40 shrink-0 mx-auto rounded-lg object-cover ring-1 ring-base-content/10 shadow-sm md:mx-0 md:w-55"
-          />
+          <a
+            href={metadata.linkToBuy}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mx-auto flex flex-col items-center gap-2 md:mx-0"
+          >
+            <Image
+              src={metadata.coverImage}
+              alt={metadata.title}
+              width={300}
+              height={450}
+            />
+            <span className="text-sm font-semibold text-black/90 underline transition-colors duration-200 hover:text-primary hover:no-underline dark:text-white">
+              Get the book on Bookshop
+            </span>
+          </a>
         </div>
       </div>
     </div>
