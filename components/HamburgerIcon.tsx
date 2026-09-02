@@ -5,7 +5,6 @@ import Socials from "./Socials";
 import ThemeToggle from "./ThemeToggle";
 
 const LINKS = [
-  { href: "#business", label: "My Business" },
   { href: "#posts", label: "Blog Posts" },
   { href: "#worth-your-time", label: "Worth Your Time" },
 ];

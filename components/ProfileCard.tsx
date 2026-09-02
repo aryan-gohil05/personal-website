@@ -43,15 +43,7 @@ export default function ProfileCard() {
               />
             </svg>
             <p className="text-sm md:text-base whitespace-nowrap">
-              Founder of{" "}
-              <a
-                href="https://upvoted.tech"
-                className="underline-offset-2 hover:text-[#65E03D] hover:underline"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Upvoted
-              </a>
+              SaaS Founder
             </p>
           </div>
         </div>
