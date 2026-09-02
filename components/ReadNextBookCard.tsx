@@ -2,7 +2,12 @@ import Image from "next/image";
 import Link from "next/link";
 import type { Book } from "@/lib/books";
 
-export default function ReadNextBookCard({ slug, title, coverImage }: Book) {
+export default function ReadNextBookCard({
+  slug,
+  title,
+  longTitle,
+  coverImage,
+}: Book) {
   return (
     <Link
       href={`/books/${slug}`}
@@ -17,7 +22,7 @@ export default function ReadNextBookCard({ slug, title, coverImage }: Book) {
       />
 
       <h3 className="mt-4 text-lg font-bold text-black/90 dark:text-white">
-        {title}
+        {longTitle}
       </h3>
 
       <span className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-primary underline underline-offset-2 group-hover:text-primary/70">

@@ -13,6 +13,11 @@ export const bookMetadataSchema = z.object({
   date: z.iso.date("date must be in YYYY-MM-DD format"),
   coverImage: z.string().min(1, "coverImage is required"),
   linkToBuy: z.url("linkToBuy must be a valid URL"),
+  rating: z
+    .number()
+    .int("rating must be a whole number")
+    .min(1, "rating must be between 1 and 5")
+    .max(5, "rating must be between 1 and 5"),
 });
 
 export type BookMetadata = z.infer<typeof bookMetadataSchema>;

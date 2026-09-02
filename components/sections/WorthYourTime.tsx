@@ -12,7 +12,7 @@ const WorthYourTime = async () => {
         <h3 className="text-sm font-semibold uppercase tracking-wide text-base-content/50">
           Book Recommendations
         </h3>
-        <div className="mt-4 grid grid-cols-[repeat(auto-fit,minmax(140px,1fr))] gap-4 sm:grid-cols-[repeat(auto-fit,minmax(160px,1fr))]">
+        <div className="mt-4 grid grid-cols-[repeat(auto-fill,minmax(280px,1fr))] gap-4">
           {books.map((book) => (
             <BookCard key={book.slug} {...book} />
           ))}

@@ -4,6 +4,7 @@ import Avatar from "@/components/Avatar";
 import ShareButton from "@/components/ShareButton";
 import type { BookMetadata } from "@/lib/books";
 import { formatDate } from "@/lib/date";
+import StarRating from "./StarRating";
 
 type BookReviewHeaderProps = {
   metadata: BookMetadata;
@@ -18,13 +19,15 @@ const BookReviewHeader = ({ metadata }: BookReviewHeaderProps) => {
           <ShareButton title={metadata.longTitle} />
         </div>
 
-        <div className="mt-10 flex flex-col gap-6 md:flex-row md:items-start md:justify-between md:gap-10">
-          <div className="min-w-0 flex-1">
+        <div className="mt-10 flex flex-col gap-6 md:flex-row md:items-stretch md:justify-between md:gap-10">
+          <div className="flex min-w-0 flex-1 flex-col">
             <h1 className="text-3xl leading-tight font-black text-black/90 dark:text-white md:text-7xl">
               {metadata.longTitle}
             </h1>
-
-            <div className="mt-4 flex items-center gap-2 md:mt-8">
+            <div className="mt-4 md:mb-8 [&_svg]:h-6 [&_svg]:w-6 md:mt-6 md:[&_svg]:h-8 md:[&_svg]:w-8">
+              <StarRating rating={metadata.rating} />
+            </div>
+            <div className="mt-5 flex items-center gap-2 md:mt-auto">
               <Avatar className="w-8" />
               <span className="text-sm font-semibold text-secondary">
                 Aryan Gohil
@@ -48,8 +51,8 @@ const BookReviewHeader = ({ metadata }: BookReviewHeaderProps) => {
             <Image
               src={metadata.coverImage}
               alt={metadata.title}
-              width={300}
-              height={450}
+              width={270}
+              height={430}
             />
             <span className="text-sm font-semibold text-black/90 underline transition-colors duration-200 hover:text-primary hover:no-underline dark:text-white">
               Get the book on Bookshop
