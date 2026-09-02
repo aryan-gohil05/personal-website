@@ -4,7 +4,7 @@ type ArticleTocProps = {
   headings: Heading[];
 };
 
-export default function ArticleToc({ headings }: ArticleTocProps) {
+export default function inThisArticle({ headings }: ArticleTocProps) {
   if (headings.length === 0) return null;
 
   return (

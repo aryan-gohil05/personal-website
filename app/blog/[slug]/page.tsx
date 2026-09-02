@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import ArticleToc from "@/components/ArticleToc";
+import BackButton from "@/components/BackButton";
+import ArticleToc from "@/components/InThisArticle";
 import Avatar from "@/components/Avatar";
 import BlogCard from "@/components/BlogCard";
 import CoverImage from "@/components/CoverImage";
@@ -66,25 +66,7 @@ export default async function BlogPost({ params }: PageProps<"/blog/[slug]">) {
       <div className="mx-auto max-w-4xl px-6 py-10 md:pb-16 pt-12 lg:flex lg:max-w-7xl lg:items-start lg:gap-12">
         <div className="lg:min-w-0 lg:flex-1 lg:ml-auto lg:max-w-3xl">
           <div className="flex items-center justify-between">
-            <Link
-              href="/#posts"
-              className="inline-flex items-center gap-2 text-sm font-semibold text-base-content/70 hover:text-secondary"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="h-4 w-4"
-              >
-                <path d="M19 12H5" />
-                <path d="m12 19-7-7 7-7" />
-              </svg>
-              Back
-            </Link>
+            <BackButton returnUrl="/#posts" />
             <ShareButton title={metadata.title} />
           </div>
 
@@ -92,10 +74,10 @@ export default async function BlogPost({ params }: PageProps<"/blog/[slug]">) {
             <span className="text-xs font-semibold uppercase tracking-wide text-primary">
               {metadata.category}
             </span>
-            <h1 className="mt-2 text-3xl font-black md:text-5xl">
+            <h1 className="text-3xl leading-tight font-black text-black/90 dark:text-white md:text-6xl">
               {metadata.title}
             </h1>
-            <p className="mt-4 text-lg text-base-content/70">
+            <p className="mt-4 text-lg text-base-content">
               {metadata.description}
             </p>
 

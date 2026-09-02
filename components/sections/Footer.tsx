@@ -4,7 +4,7 @@ import ThemeToggle from "@/components/ThemeToggle";
 
 const Footer = () => {
   return (
-    <footer className="bg-base-200">
+    <footer className="bg-base-100">
       <div className="mx-auto flex max-w-7xl flex-col gap-12 px-8 py-16 text-center md:flex-row md:items-end md:justify-between md:text-left">
         <div className="mx-auto max-w-60 md:mx-0 md:max-w-none">
           <Link
