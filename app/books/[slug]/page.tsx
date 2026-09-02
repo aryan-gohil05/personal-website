@@ -61,6 +61,10 @@ export default async function BookReview({
       <ProgressTracker />
       <BookReviewHeader metadata={metadata} />
 
+      <div className="mx-auto mt-10 max-w-4xl px-6 lg:hidden">
+        <ArticleToc headings={headings} topOffsetClassName="lg:hidden" />
+      </div>
+
       {/* Content */}
       <div className="mx-auto max-w-4xl px-6 pt-10 md:pt-16 lg:flex lg:max-w-350 lg:items-start lg:gap-12">
         <div className="lg:min-w-0 lg:flex-1 lg:ml-auto lg:max-w-4xl">
@@ -69,7 +73,10 @@ export default async function BookReview({
           </article>
         </div>
 
-        <ArticleToc headings={headings} />
+        <ArticleToc
+          headings={headings}
+          topOffsetClassName="hidden lg:mt-28 lg:block"
+        />
       </div>
 
       {/* Read Next */}

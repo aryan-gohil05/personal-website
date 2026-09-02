@@ -64,14 +64,14 @@ export default async function BlogPost({ params }: PageProps<"/blog/[slug]">) {
     <main className="min-h-screen bg-base-300">
       <ProgressTracker />
 
-      <div className="mx-auto max-w-4xl px-6 pt-12 lg:grid lg:max-w-350 lg:grid-cols-[minmax(0,56rem)_20rem] lg:items-start lg:justify-end lg:gap-x-12">
-        <div className="flex items-center justify-between lg:col-start-1">
+      <div className="mx-auto flex max-w-4xl flex-col px-6 pt-12 lg:grid lg:max-w-350 lg:grid-cols-[minmax(0,56rem)_20rem] lg:items-start lg:justify-end lg:gap-x-12">
+        <div className="order-1 flex items-center justify-between lg:col-start-1">
           <BackButton returnUrl="/#posts" />
           <ShareButton title={metadata.title} />
         </div>
 
-        <article className="lg:contents">
-          <div className="mt-10 lg:col-start-1">
+        <article className="contents">
+          <div className="order-2 mt-10 lg:col-start-1">
             <span className="text-xs font-semibold uppercase tracking-wide text-primary">
               {metadata.category}
             </span>
@@ -104,17 +104,17 @@ export default async function BlogPost({ params }: PageProps<"/blog/[slug]">) {
             width={1000}
             height={420}
             priority
-            className="mt-10 h-auto w-full rounded-xl lg:col-start-1 lg:row-start-3"
+            className="order-3 mt-10 h-auto w-full rounded-xl lg:col-start-1 lg:row-start-3"
           />
 
-          <div className="mt-10 lg:col-start-1">
+          <div className="order-5 mt-10 lg:col-start-1">
             <Content />
           </div>
         </article>
 
         <ArticleToc
           headings={headings}
-          topOffsetClassName="lg:col-start-2 lg:row-start-3 lg:row-span-2 lg:mt-10 lg:self-start"
+          topOffsetClassName="order-4 mt-10 lg:col-start-2 lg:row-start-3 lg:row-span-2 lg:mt-10 lg:self-start"
         />
       </div>
 
