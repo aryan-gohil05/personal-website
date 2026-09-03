@@ -6,7 +6,7 @@ const ViewAllButton = ({ url }: { url: string }) => {
       href={url}
       className="group text-sm btn rounded-xl bg-secondary text-white"
     >
-      {url === "/blog" ? "More Posts" : "More Books"}
+      {url === "/blog" ? "All Posts" : "All Books"}
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 24 24"
