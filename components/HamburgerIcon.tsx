@@ -5,8 +5,8 @@ import Socials from "./Socials";
 import ThemeToggle from "./ThemeToggle";
 
 const LINKS = [
-  { href: "#posts", label: "Blog Posts" },
-  { href: "#worth-your-time", label: "Worth Your Time" },
+  { href: "/blog", label: "Blog Posts" },
+  { href: "/books", label: "Book Reviews" },
 ];
 
 const TRANSITION_MS = 300;

@@ -45,7 +45,12 @@ const bricolageGrotesque = Bricolage_Grotesque({
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en" className="scroll-smooth" suppressHydrationWarning>
+    <html
+      lang="en"
+      className="scroll-smooth"
+      data-scroll-behavior="smooth"
+      suppressHydrationWarning
+    >
       <body
         className={`${bricolageGrotesque.className} bg-base-100 text-base-content`}
       >

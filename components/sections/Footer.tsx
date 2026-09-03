@@ -30,13 +30,13 @@ const Footer = () => {
             </h3>
             <ul className="space-y-2 text-sm font-semibold">
               <li>
-                <Link href="/#posts" className="link link-hover">
+                <Link href="/blog" className="link link-hover">
                   Blog
                 </Link>
               </li>
               <li>
-                <Link href="/#worth-your-time" className="link link-hover">
-                  Worth Your Time
+                <Link href="/books" className="link link-hover">
+                  Book Reviews
                 </Link>
               </li>
             </ul>

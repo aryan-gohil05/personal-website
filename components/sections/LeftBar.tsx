@@ -44,7 +44,7 @@ const LeftBar = () => {
             >
               <Image
                 src={startup.logo}
-                alt=""
+                alt="Upvoted Logo"
                 width={20}
                 height={20}
                 className="h-5 w-5 shrink-0 object-contain"
