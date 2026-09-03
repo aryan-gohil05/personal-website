@@ -14,6 +14,7 @@ export const postMetadataSchema = z.object({
   category: z.string().min(1, "category is required"),
   coverImage: z.string().min(1, "coverImage is required"),
   coverImageDark: z.string().min(1).optional(),
+  readTime: z.number().int("readTime must be a whole number").positive(),
 });
 
 export type PostMetadata = z.infer<typeof postMetadataSchema>;

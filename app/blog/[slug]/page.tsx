@@ -94,6 +94,10 @@ export default async function BlogPost({ params }: PageProps<"/blog/[slug]">) {
               >
                 {formatPostDate(metadata.date)}
               </time>
+              <span className="text-sm text-base-content/50">·</span>
+              <span className="text-sm text-base-content/70">
+                {metadata.readTime} min read
+              </span>
             </div>
           </div>
 

@@ -13,12 +13,16 @@ export default function BlogCard({
   category,
   coverImage,
   coverImageDark,
+  readTime,
 }: BlogCardProps) {
   return (
     <Link
       href={`/blog/${slug}`}
       className="group flex flex-col gap-1.5 rounded-lg bg-base-100 p-4 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
     >
+      <span className="w-fit rounded-full bg-secondary/15 px-2.5 py-1 text-xs font-semibold uppercase tracking-wide text-secondary">
+        {category}
+      </span>
       <CoverImage
         src={coverImage}
         srcDark={coverImageDark}
@@ -29,12 +33,12 @@ export default function BlogCard({
         className="aspect-320/218 w-full rounded-lg object-cover"
       />
       <div className="flex items-center justify-between">
-        <span className="text-xs font-semibold uppercase tracking-wide text-secondary">
-          {category}
-        </span>
         <time dateTime={date} className="text-sm text-base-content/70">
           {formatPostDate(date)}
         </time>
+        <span className="text-sm text-base-content/70">
+          {readTime} min read
+        </span>
       </div>
       <h3 className="text-lg font-bold transition-colors duration-300 group-hover:text-secondary">
         {title}

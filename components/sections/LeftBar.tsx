@@ -31,7 +31,7 @@ const LeftBar = () => {
           </p>
         </div>
         <div className="flex w-full flex-col gap-2 rounded-lg bg-base-200/60 p-3 md:mb-8">
-          <h2 className="text-xs font-semibold uppercase tracking-wide text-base-content/50">
+          <h2 className="text-xs font-semibold uppercase tracking-wide text-secondary">
             Building
           </h2>
           {STARTUPS.map((startup) => (
